@@ -1,0 +1,30 @@
+.custom-text-cardheader {
+    font-weight: bold;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+.custom-form-label{
+    display: flex !important;
+    align-items: center !important;
+}
+
+.customcol-flex-end{
+    display: flex;
+    align-items: flex-end;
+}
+
+@media (max-width: 600px) {
+    .customcol-flex-end {
+        display: block; 
+        align-items: normal; 
+    }
+    .custom-w-sl{
+        width: 50%;
+    }
+    .custom-form-label {
+        display: flex !important;
+        justify-content: center;
+        align-items: center !important;
+    }
+}
