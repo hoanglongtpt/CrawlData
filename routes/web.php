@@ -27,8 +27,8 @@ Route::post('/postRegister', [AuthController::class,'postRegister'])->name('memb
 Route::get('/forgot-password', [AuthController::class,'forgot_password'])->name('member.forgot_password');
 Route::post('/reset-password', [AuthController::class,'reset_password'])->name('member.reset_password');
 
+Route::get('/',[HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth.member')->group(function () {
     Route::get('/logout', [AuthController::class,'logout'])->name('member.logout');
-    Route::get('/',[HomeController::class, 'index'])->name('home');
 });
