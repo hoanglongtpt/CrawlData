@@ -8,5 +8,7 @@ setup database php myadmin ở laragon có sẵn và cấu hình trong env của
 vào dự án mở teminal và chạy lệnh:
 
 composer install (lệnh này cài package source)
-
+php artisan migrate
+php artisan db:seed
+php artisan sweetalert:publish
 php artisan ser (chạy dự án)

@@ -7,31 +7,25 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">Người dùng</h4>
+                                <h4 class="header-title">Người Dùng</h4>
                                 <div class="tab-content">
                                     <div class="tab-pane show active" id="scroll-horizontal-preview" role="tabpanel">
                                         <div id="scroll-horizontal-datatable_wrapper"
                                             class="dataTables_wrapper dt-bootstrap5 no-footer">
-                                            <div class="row mt-3">
-                                                <div class="col-sm-12 col-md-6 customcol-flex-end">
-                                                    <div class="dataTables_length" id="scroll-horizontal-datatable_length">
-                                                        <label class="form-label custom-form-label"><select
-                                                                name="scroll-horizontal-datatable_length"
-                                                                aria-controls="scroll-horizontal-datatable"
-                                                                class="form-select form-select-sm custom-w-sl" fdprocessedid="l00zwg">
-                                                                <option value="10">10</option>
-                                                                <option value="25">25</option>
-                                                                <option value="50">50</option>
-                                                                <option value="100">100</option>
-                                                            </select> <span class="ms-2"></span></label></div>
+                                            <form action="{{route('user.index')}}" class="mt-5 custom-form-search-admin d-flex" method="GET">
+                                                <a href="{{route('user.create')}}" class="form-control btn btn-primary custom-btn-add-new">Thêm mới</a>
+                                                <div class="row">
+                                                  <div class="col">
+                                                    <input type="text" name="email" class="form-control" placeholder="Email" value="{{ request()->get('email') }}">
+                                                  </div>
+                                                  <div class="col">
+                                                    <input type="text" name="name" class="form-control" placeholder="Tên" value="{{ request()->get('name') }}">
+                                                  </div>
+                                                  <div class="col">
+                                                    <button type="submit" class="form-control btn btn-primary custom-btn-search">Tìm</button>
+                                                  </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-6">
-                                                    <div id="scroll-horizontal-datatable_filter" class="dataTables_filter">
-                                                        <label>Tìm:<input type="search"
-                                                                class="form-control form-control-sm" placeholder=""
-                                                                aria-controls="scroll-horizontal-datatable"></label></div>
-                                                </div>
-                                            </div>
+                                              </form>
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="dataTables_scroll">
@@ -43,183 +37,45 @@
                                                                 style="width: 1141px;">
                                                                 <thead>
                                                                     <tr style="height: 0px;">
-                                                                        <th>1</th>
-                                                                        <th>2</th>
-                                                                        <th>3</th>
-                                                                        <th>4</th>
-                                                                        <th>5</th>
-                                                                        <th>6</th>
-                                                                        <th>7</th>
-                                                                        <th>8</th>
-                                                                        <th>9</th>
+                                                                        <th>Tên</th>
+                                                                        <th>Username</th>
+                                                                        <th>Email</th>
+                                                                        <th>Số dư(VND)</th>
+                                                                        <th class="th-action">Thao Tác</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <tr class="odd">
-                                                                        <td class="sorting_1">Airi</td>
-                                                                        <td>Satou</td>
-                                                                        <td>Accountant</td>
-                                                                        <td>Tokyo</td>
-                                                                        <td>33</td>
-                                                                        <td>2008/11/28</td>
-                                                                        <td>$162,700</td>
-                                                                        <td>5407</td>
-                                                                        <td>a.satou@datatables.net</td>
-                                                                    </tr>
-                                                                    <tr class="even">
-                                                                        <td class="sorting_1">Angelica</td>
-                                                                        <td>Ramos</td>
-                                                                        <td>Chief Executive Officer (CEO)</td>
-                                                                        <td>London</td>
-                                                                        <td>47</td>
-                                                                        <td>2009/10/09</td>
-                                                                        <td>$1,200,000</td>
-                                                                        <td>5797</td>
-                                                                        <td>a.ramos@datatables.net</td>
-                                                                    </tr>
-                                                                    <tr class="odd">
-                                                                        <td class="sorting_1">Ashton</td>
-                                                                        <td>Cox</td>
-                                                                        <td>Junior Technical Author</td>
-                                                                        <td>San Francisco</td>
-                                                                        <td>66</td>
-                                                                        <td>2009/01/12</td>
-                                                                        <td>$86,000</td>
-                                                                        <td>1562</td>
-                                                                        <td>a.cox@datatables.net</td>
-                                                                    </tr>
-                                                                    <tr class="even">
-                                                                        <td class="sorting_1">Bradley</td>
-                                                                        <td>Greer</td>
-                                                                        <td>Software Engineer</td>
-                                                                        <td>London</td>
-                                                                        <td>41</td>
-                                                                        <td>2012/10/13</td>
-                                                                        <td>$132,000</td>
-                                                                        <td>2558</td>
-                                                                        <td>b.greer@datatables.net</td>
-                                                                    </tr>
-                                                                    <tr class="odd">
-                                                                        <td class="sorting_1">Brenden</td>
-                                                                        <td>Wagner</td>
-                                                                        <td>Software Engineer</td>
-                                                                        <td>San Francisco</td>
-                                                                        <td>28</td>
-                                                                        <td>2011/06/07</td>
-                                                                        <td>$206,850</td>
-                                                                        <td>1314</td>
-                                                                        <td>b.wagner@datatables.net</td>
-                                                                    </tr>
-                                                                    <tr class="even">
-                                                                        <td class="sorting_1">Brielle</td>
-                                                                        <td>Williamson</td>
-                                                                        <td>Integration Specialist</td>
-                                                                        <td>New York</td>
-                                                                        <td>61</td>
-                                                                        <td>2012/12/02</td>
-                                                                        <td>$372,000</td>
-                                                                        <td>4804</td>
-                                                                        <td>b.williamson@datatables.net</td>
-                                                                    </tr>
-                                                                    <tr class="odd">
-                                                                        <td class="sorting_1">Bruno</td>
-                                                                        <td>Nash</td>
-                                                                        <td>Software Engineer</td>
-                                                                        <td>London</td>
-                                                                        <td>38</td>
-                                                                        <td>2011/05/03</td>
-                                                                        <td>$163,500</td>
-                                                                        <td>6222</td>
-                                                                        <td>b.nash@datatables.net</td>
-                                                                    </tr>
-                                                                    <tr class="even">
-                                                                        <td class="sorting_1">Caesar</td>
-                                                                        <td>Vance</td>
-                                                                        <td>Pre-Sales Support</td>
-                                                                        <td>New York</td>
-                                                                        <td>21</td>
-                                                                        <td>2011/12/12</td>
-                                                                        <td>$106,450</td>
-                                                                        <td>8330</td>
-                                                                        <td>c.vance@datatables.net</td>
-                                                                    </tr>
-                                                                    <tr class="odd">
-                                                                        <td class="sorting_1">Cara</td>
-                                                                        <td>Stevens</td>
-                                                                        <td>Sales Assistant</td>
-                                                                        <td>New York</td>
-                                                                        <td>46</td>
-                                                                        <td>2011/12/06</td>
-                                                                        <td>$145,600</td>
-                                                                        <td>3990</td>
-                                                                        <td>c.stevens@datatables.net</td>
-                                                                    </tr>
-                                                                    <tr class="even">
-                                                                        <td class="sorting_1">Cedric</td>
-                                                                        <td>Kelly</td>
-                                                                        <td>Senior Javascript Developer</td>
-                                                                        <td>Edinburgh</td>
-                                                                        <td>22</td>
-                                                                        <td>2012/03/29</td>
-                                                                        <td>$433,060</td>
-                                                                        <td>6224</td>
-                                                                        <td>c.kelly@datatables.net</td>
-                                                                    </tr>
+                                                                    @foreach ($items as $item)
+                                                                        <tr class="odd">
+                                                                            <td class="sorting_1">{{$item->name}}</td>
+                                                                            <td>{{$item->user_name}}</td>
+                                                                            <td>{{$item->email}}</td>
+                                                                            <td>{{$item->account_balance}}</td>
+                                                                            <td>
+                                                                                <div class="dropdown">
+                                                                                    <a href="#" class="dropdown-toggle arrow-none card-drop show" data-bs-toggle="dropdown" aria-expanded="true">
+                                                                                        <i class="mdi mdi-dots-vertical"></i>
+                                                                                    </a>
+                                                                                    <div class="dropdown-menu dropdown-menu-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 31px);" data-popper-placement="bottom-end">
+                                                                                        <a href="{{route('user.show',[$item->id])}}" class="dropdown-item">xem</a>
+                                                                                        <a href="{{route('user.edit',[$item->id])}}" class="dropdown-item">Sửa</a>
+                                                                                        <a href="javascript:void(0);" class="dropdown-item" onclick="{{'confirmDelete('.$item->id.')'}}">Xóa</a>
+                                                                                        <form id="{{'deleteForm-'.$item->id}}" action="{{ route('user.destroy',['id' => $item->id ]) }}" method="POST" style="display: none;">
+                                                                                            @csrf
+                                                                                            @method('DELETE')
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endforeach
                                                                 </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm-12 col-md-5">
-                                                    <div class="dataTables_info" id="scroll-horizontal-datatable_info"
-                                                        role="status" aria-live="polite">Showing 1 to 10 of 57 entries
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-12 col-md-7">
-                                                    <div class="dataTables_paginate paging_simple_numbers"
-                                                        id="scroll-horizontal-datatable_paginate">
-                                                        <ul class="pagination pagination-rounded">
-                                                            <li class="paginate_button page-item previous disabled"
-                                                                id="scroll-horizontal-datatable_previous"><a
-                                                                    href="#"
-                                                                    aria-controls="scroll-horizontal-datatable"
-                                                                    data-dt-idx="0" tabindex="0" class="page-link"><i
-                                                                        class="mdi mdi-chevron-left"></i></a></li>
-                                                            <li class="paginate_button page-item active"><a href="#"
-                                                                    aria-controls="scroll-horizontal-datatable"
-                                                                    data-dt-idx="1" tabindex="0"
-                                                                    class="page-link">1</a></li>
-                                                            <li class="paginate_button page-item "><a href="#"
-                                                                    aria-controls="scroll-horizontal-datatable"
-                                                                    data-dt-idx="2" tabindex="0"
-                                                                    class="page-link">2</a></li>
-                                                            <li class="paginate_button page-item "><a href="#"
-                                                                    aria-controls="scroll-horizontal-datatable"
-                                                                    data-dt-idx="3" tabindex="0"
-                                                                    class="page-link">3</a></li>
-                                                            <li class="paginate_button page-item "><a href="#"
-                                                                    aria-controls="scroll-horizontal-datatable"
-                                                                    data-dt-idx="4" tabindex="0"
-                                                                    class="page-link">4</a></li>
-                                                            <li class="paginate_button page-item "><a href="#"
-                                                                    aria-controls="scroll-horizontal-datatable"
-                                                                    data-dt-idx="5" tabindex="0"
-                                                                    class="page-link">5</a></li>
-                                                            <li class="paginate_button page-item "><a href="#"
-                                                                    aria-controls="scroll-horizontal-datatable"
-                                                                    data-dt-idx="6" tabindex="0"
-                                                                    class="page-link">6</a></li>
-                                                            <li class="paginate_button page-item next"
-                                                                id="scroll-horizontal-datatable_next"><a href="#"
-                                                                    aria-controls="scroll-horizontal-datatable"
-                                                                    data-dt-idx="7" tabindex="0" class="page-link"><i
-                                                                        class="mdi mdi-chevron-right"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <x-pagination :items="$items" />
                                         </div>
                                     </div> <!-- end preview-->
 
@@ -247,4 +103,11 @@
         <!-- end Footer -->
 
     </div>
+    <script>
+        function confirmDelete(id) {
+            if (confirm('Bạn có chắc chắn muốn xóa?')) {
+                document.getElementById('deleteForm-'+id).submit();
+            }
+        }
+    </script>
 @endsection
