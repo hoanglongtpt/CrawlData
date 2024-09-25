@@ -14,7 +14,29 @@
     align-items: flex-end;
 }
 
+
+.custom-form-search-admin{
+    display: flex;
+    justify-content: space-between;
+}
+
+.custom-btn-add-new{
+    width: 10%;
+}
+
 @media (max-width: 600px) {
+    .th-action{
+        display: none;
+    }
+    .custom-form-search-admin{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .custom-btn-add-new{
+        margin-bottom: 10%;
+        width: 100%;
+    }
     .customcol-flex-end {
         display: block; 
         align-items: normal; 

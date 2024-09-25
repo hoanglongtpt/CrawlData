@@ -55,7 +55,14 @@
                     <li class="side-nav-title">Quản Trị</li>
 
                     <li class="side-nav-item">
-                        <a href="{{route('admin.index')}}" class="side-nav-link">
+                        <a href="{{route('user.index')}}" class="side-nav-link">
+                            <i class="uil-calender"></i>
+                            <span> Admin </span>
+                        </a>
+                    </li>
+
+                    <li class="side-nav-item">
+                        <a href="{{route('member.index')}}" class="side-nav-link">
                             <i class="uil-calender"></i>
                             <span> Người dùng </span>
                         </a>

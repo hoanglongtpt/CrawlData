@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <div class="wrapper">
         @include('admin.includes.header')
         @include('admin.includes.sidebar')

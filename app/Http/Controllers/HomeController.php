@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
     public function index (Request $request) {
 
-
+        // $id = "2631184";
+        // $response = Http::withHeaders([
+        //     'Accept-Language' => '<accept-language>',
+        //     'x-freepik-api-key' => 'FPSX62e1619372cc4ad7af326ed6dffdd0a2',
+        // ])->get('https://api.freepik.com/v1/resources/42078526');
+        // dd($response['data']);
         // $curl = curl_init();
 
         // curl_setopt_array($curl, [
@@ -36,6 +42,6 @@ class HomeController extends Controller
         // } else {
             
         // }
-        return view('users.index');
+        return view('member.index');
     }
 }
