@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('assets-theme/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets-theme/css/index.css')}}" rel="stylesheet">
 
 </head>
 
