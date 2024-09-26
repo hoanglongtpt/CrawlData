@@ -46,9 +46,25 @@
                                 <span class="text">RESET</span>
                             </button>
                         </div>
-                        <div id="flashmessage">
+                        <div id="flashmessage" class="submit-warning border-warning">
+                            <p class="warning-text">Oops! Vui lòng nhập link pikbest</p>
+                            <button class="warning-text btn-close">&#x2715;</button>
                         </div>
-                        <div id="result">
+                        <div id="flashmessage" class="submit-warning border-error">
+                            <p class="error-text">Oops! Bạn chưa đăng nhập</p>
+                            <button class="error-text btn-close">&#x2715;</button>
+                        </div>
+                        <div id="result" class="result-container">
+                            <div class="flex justify-center download-box  border-b-dashed">
+                                <img class="download-img"  src="{{asset('assets-theme/img/folder-download.png')}}">
+                            </div>
+                            <div class="download-box border-b-dashed flex flex-col items-center gap-2">
+                                <button class="result-link">freepik_4854.zip</button>
+                                <button class="result-download">DOWNLOAD</button>
+                            </div>
+                            <div class="border-b-dashed flex justify-center report-link">Báo link download hỏng hoặc gặp sự cố?</div>
+                            <!-- <div class="border-b-dashed"></div> -->
+                            
                         </div>
                         <div id="loadingbar" class="form-group">
                             <h4 class="small font-weight-bold"><span id="title_loadingbar"></span><span
