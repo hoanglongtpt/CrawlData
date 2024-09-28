@@ -23,7 +23,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 32px;
+    gap: 40px;
     background: white;
 }
 .logo {
@@ -83,8 +83,8 @@ input.form-control-checkbox::before {
     border: 1px solid #fc802d;
     background: white;
     border-radius: 8px;
-    padding: 4px 20px;
-    font-weight: 600;
+    padding: 6px 24px;
+    font-weight: bold;
 }
 .login-btn:hover {
     background: #fc802d;
