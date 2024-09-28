@@ -20,10 +20,11 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('assets-theme/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets-theme/css/login.css')}}" rel="stylesheet">
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="app-bg-primary">
     @include('sweetalert::alert')
     @yield('content')
 
