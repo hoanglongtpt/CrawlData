@@ -1,58 +1,49 @@
 @extends('member.auth.auth_master')
 @section('content')
-    <div class="container">
-
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                    <div class="col-lg-7">
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
-                            </div>
-                            <form action="{{route('member.postRegister')}}"  class="user" method="POST">
-                                @csrf
-                                <div class="form-group row">
-                                    <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input type="text" name="name" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Name">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input type="password" name="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </button>
-                                <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
-                            </form>
-                            <hr>
-                            <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
-                            </div>
+<section class="login-container">
+        <div class="login-card">
+            <div class="side img-side">
+                <img class="login-img"  src="{{asset('assets-theme/img/login.jpg')}}">
+            </div>
+            <div class="side login-side">
+                <div class="logo">LOGO</div>
+                <div class="login-wrapper">
+                    <div class="login-text">Đăng ký</div>
+                    <form action="{{route('member.postLogin')}}"  class="user" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control-login"
+                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                placeholder="Nhập email của bạn">
                         </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control-login"
+                                id="password" placeholder="Nhập mật khẩu">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control-login"
+                                id="confirmPassword" placeholder="Xác nhận mật khẩu">
+                        </div>
+                        <div class="form-group submit-group">
+                            <button  type="submit" href="index.html" class="login-btn register-btn">Đăng Ký</button>
+                        </div>
+                        <hr class="divider">
+                        <a href="index.html" class="btn btn-google btn-user btn-block social-btn">
+                            <img width="24px" height="24px" src="{{asset('assets-theme/img/google.svg')}}">
+                            Đăng nhập bằng Google
+                        </a>
+                        <a href="index.html" class="btn btn-facebook btn-user btn-block social-btn">
+                            <img width="24px" height="24px" src="{{asset('assets-theme/img/facebook.svg')}}">
+                            Đăng nhập bằng Facebook
+                        </a>
+                    </form>
+                    <div class="policy-group">
+                        <p>Chính sách bảo mật</p>
+                        <span>|</span>
+                        <span class="hotline-text">Hotline:058.789.6799</span>
                     </div>
                 </div>
             </div>
         </div>
-
-    </div>
+    </section>
 @endsection

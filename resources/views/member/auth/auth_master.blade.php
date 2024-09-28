@@ -21,6 +21,8 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('assets-theme/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets-theme/css/login.css')}}" rel="stylesheet">
+    <link href="{{asset('assets-theme/css/register.css')}}" rel="stylesheet">
+    <link href="{{asset('assets-theme/css/forgot-password.css')}}" rel="stylesheet">
 
 </head>
 
