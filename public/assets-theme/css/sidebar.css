@@ -1,0 +1,82 @@
+:root {
+    --bg-gradient-orange: linear-gradient(
+        90deg,
+        rgba(252, 128, 45, 1) 50%,
+        rgba(255, 157, 92, 1) 100%
+    );
+    --bg-gradient-orange-1: linear-gradient(
+        360deg,
+        rgba(252, 128, 45, 1) 0%,
+        rgba(255, 157, 92, 1) 100%
+    );
+    --bg-gradient-blue: linear-gradient(
+        90deg,
+        rgba(42, 19, 125, 1) 50%,
+        rgba(109, 29, 255, 1) 100%
+    );
+    --orange-2: #fed0af;
+}
+
+.sidebar-bg {
+    background: var(--bg-gradient-orange);
+}
+.sidebar-position {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+.nav-link-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-item {
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
+.price-tag {
+    background: white;
+    padding: 2px 0px;
+    width: 40px;
+    color: black;
+    border-radius: 8px;
+    text-align: center;
+}
+.contact-group {
+    margin-bottom: 24px;
+}
+.contact-item {
+    padding: 4px 16px;
+    font-size: 14px;
+    color: white;
+    opacity: 0.9;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+.contact-logo {
+    width: 24px;
+    height: 24px;
+}
+.contact-header {
+    opacity: 0.5;
+    color: white;
+    font-size: 24px;
+}
+
+/* custom */
+.hidden {
+    display: none !important;
+}
+.block {
+    display: block !important;
+}
+.text-md {
+    font-size: 16px !important;
+}
+.m-auto {
+    margin: auto;
+}

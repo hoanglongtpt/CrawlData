@@ -21,6 +21,8 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('assets-theme/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets-theme/css/index.css')}}" rel="stylesheet">
+    <link href="{{asset('assets-theme/css/sidebar.css')}}" rel="stylesheet">
+    <link href="{{asset('assets-theme/css/header.css')}}" rel="stylesheet">
 
 </head>
 
@@ -51,7 +53,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            @include('layouts.includes.footer')
+            <!-- @include('layouts.includes.footer') -->
             <!-- End of Footer -->
 
         </div>
@@ -101,6 +103,7 @@
     <!-- Page level custom scripts -->
     <script src="{{asset('assets-theme/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('assets-theme/js/demo/chart-pie-demo.js')}}"></script>
+    <script src="{{asset('assets-theme/custom-js/sidebar.js')}}"></script>
 
 </body>
 

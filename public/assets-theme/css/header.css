@@ -1,0 +1,44 @@
+.header-custom {
+    background: var(--orange-2) !important;
+}
+.page-title {
+    font-size: 20px;
+}
+.navbar {
+    padding: 0.5rem 1.5rem;
+}
+.nav-item-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.charge-btn {
+    padding: 4px 12px;
+    background: var(--bg-gradient-orange);
+    width: max-content;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+.balance {
+    color: blue;
+}
+.name-text {
+    color: black;
+    font-size: 14px;
+}
+.topbar .nav-item .nav-link {
+    padding-left: 0px;
+}
+.topbar .topbar-divider {
+    margin: auto 1.5rem !important;
+}
+
+/* responsive */
+@media only screen and (max-width: 768px) {
+    .page-title {
+        font-size: 16px;
+    }
+}
