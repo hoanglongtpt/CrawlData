@@ -39,6 +39,21 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bg-gradient-orange: linear-gradient(
+    90deg,
+    rgba(252, 128, 45, 1) 50%,
+    rgba(255, 157, 92, 1) 100%
+);
+--bg-gradient-orange-1: linear-gradient(
+    360deg,
+    rgba(252, 128, 45, 1) 0%,
+    rgba(255, 157, 92, 1) 100%
+);
+--bg-gradient-blue: linear-gradient(
+    90deg,
+    rgba(42, 19, 125, 1) 50%,
+    rgba(109, 29, 255, 1) 100%
+);
 }
 
 *,
