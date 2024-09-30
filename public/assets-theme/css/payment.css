@@ -1,0 +1,41 @@
+:root {
+    --orange-1: rgba(252, 128, 45, 1);
+    --orange-2: rgba(252, 128, 45, 1);
+    --bg-gradient-orange: linear-gradient(
+        90deg,
+        rgba(252, 128, 45, 1) 50%,
+        rgba(255, 157, 92, 1) 100%
+    );
+    --bg-gradient-orange-1: linear-gradient(
+        360deg,
+        rgba(252, 128, 45, 1) 0%,
+        rgba(255, 157, 92, 1) 100%
+    );
+    --bg-gradient-blue: linear-gradient(
+        90deg,
+        rgba(42, 19, 125, 1) 50%,
+        rgba(109, 29, 255, 1) 100%
+    );
+}
+
+
+.payment-method-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.payment-method-item {
+    position: relative;
+    padding: 16px 24px;
+    border: 2px solid var(--orange-2);
+    /* border-image: linear-gradient(to right, var(--orange-1) 0%, var(--orange-2) 100%) 1; */
+    border-radius: 8px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: black;
+    cursor: pointer;
+}
+.payment-method-item:hover {
+    background: var(--orange-2);
+}

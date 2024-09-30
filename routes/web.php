@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -28,6 +29,7 @@ Route::get('/forgot-password', [AuthController::class,'forgot_password'])->name(
 Route::post('/reset-password', [AuthController::class,'reset_password'])->name('member.reset_password');
 
 Route::get('/',[HomeController::class, 'index'])->name('home');
+Route::get('/payment',[PaymentController::class, 'payment'])->name('payment');
 
 Route::middleware('auth.member')->group(function () {
     Route::get('/logout', [AuthController::class,'logout'])->name('member.logout');

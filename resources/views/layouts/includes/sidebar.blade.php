@@ -12,7 +12,7 @@
         <a class="nav-link" href="index.html">
             <div class="nav-link-layout">
                 <div>
-                    <img class="logo-item" class="logo-item" src="https://fps.cdnpk.net/favicons/apple-icon-114x114.png" />
+                    <img class="logo-item" class="logo-item" src="{{asset('assets-theme/img/logo/Freepik.png')}}" />
                     <span>FreePik</span>
                 </div>
                 <span class="price-tag">1k</span>
@@ -23,7 +23,7 @@
         <a class="nav-link" href="index.html">
             <div class="nav-link-layout">
                 <div>
-                    <img class="logo-item" src="https://assets.motionarray.com/images/2024/favicon.ico" />
+                    <img class="logo-item" src="{{asset('assets-theme/img/logo/MotionArray.png')}}" />
                     <span>Motion Array</span>
                 </div>
                 <span class="price-tag">1k</span>
@@ -34,7 +34,7 @@
         <a class="nav-link" href="index.html">
             <div class="nav-link-layout">
                 <div>
-                    <img class="logo-item" src="https://elements.envato.com/favicon.ico" />
+                    <img class="logo-item" src="{{asset('assets-theme/img/logo/evanto.ico')}}" />
                     <span>Envato</span>
                 </div>
                 <span class="price-tag">1k</span>
@@ -45,7 +45,7 @@
         <a class="nav-link" href="index.html">
             <div class="nav-link-layout">
                 <div>
-                    <img class="logo-item" src="https://vngraphic.com/assets/img/logo/pikbest.png" />
+                    <img class="logo-item" src="{{asset('assets-theme/img/logo/pikbest.png')}}" />
                     <span>Pikbest</span>
                 </div>
                 <span class="price-tag">1k</span>
@@ -56,7 +56,7 @@
         <a class="nav-link" href="index.html">
             <div class="nav-link-layout">
                 <div>
-                    <img class="logo-item" src="https://vngraphic.com/assets/img/logo/artlist.png" />
+                    <img class="logo-item" src="{{asset('assets-theme/img/logo/artlist.png')}}" />
                     <span>Artlist</span>
                 </div>
                 <span class="price-tag">1k</span>
@@ -67,7 +67,7 @@
         <a class="nav-link" href="index.html">
             <div class="nav-link-layout">
                 <div>
-                    <img class="logo-item" src="https://vngraphic.com/assets/img/logo/tiktok.png" />
+                    <img class="logo-item" src="{{asset('assets-theme/img/logo/tiktok.png')}}" />
                     <span>Tiktok</span>
                 </div>
                 <span class="price-tag">Free</span>
@@ -78,7 +78,7 @@
         <a class="nav-link" href="index.html">
             <div class="nav-link-layout">
                 <div>
-                    <img class="logo-item" src="https://www.youtube.com/s/desktop/f72ecfe9/img/favicon_48x48.png" />
+                    <img class="logo-item" src="{{asset('assets-theme/img/logo/youtube.png')}}" />
                     <span>Youtube</span>
                 </div>
                 <span class="price-tag">Free</span>
