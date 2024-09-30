@@ -12,4 +12,4 @@ php artisan migrate
 php artisan db:seed
 php artisan sweetalert:publish
 php artisan ser (chạy dự án)
-
+mnn
