@@ -1,4 +1,4 @@
-name: Get Link
+name: Deploy via SSH
 
 on:
   push:
@@ -36,6 +36,8 @@ jobs:
         username: ${{ secrets.HOST_USERNAME }}
         key: ${{ secrets.HOST_SSH_KEY }}
         script: |
+          echo "Testing SSH connection..."
+          ssh -v your_username@${{ secrets.HOST_IP }} 'echo "SSH connection successful!"'
           cd /public_html  
           git pull origin main
           composer install --no-dev
