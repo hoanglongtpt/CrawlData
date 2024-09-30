@@ -1,4 +1,4 @@
-name: Deploy via SSH
+name: Deploy via FTP
 
 on:
   push:
@@ -29,21 +29,26 @@ jobs:
         cp .env.example .env
         php artisan key:generate
 
-    - name: Deploy via SSH
-      uses: appleboy/ssh-action@master
+    - name: Deploy via FTP
+      uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
-        host: ${{ secrets.HOST_IP }}
-        username: ${{ secrets.HOST_USERNAME }}
-        key: ${{ secrets.HOST_SSH_KEY }}
-        script: |
-          echo "Testing SSH connection..."
-          ssh -v -i ~/.ssh/id_rsa editorvn@103.200.23.179 "echo 'SSH connection successful!'"
-          cd /public_html  
-          git pull origin main
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local_dir: ./   # Thư mục chứa mã nguồn của bạn
+        server_dir: /public_html   # Thư mục trên server FTP nơi bạn muốn deploy
+        git_ftp: true
+        dry_run: false  # Đặt là true nếu bạn muốn thử nghiệm trước khi thực hiện
+
+    - name: Run post-deploy commands
+      run: |
+        sshpass -p "${{ secrets.FTP_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${FTP_USERNAME}@${FTP_SERVER} << 'EOF'
+          cd /public_html
           composer install --no-dev
           php artisan migrate --force
           php artisan config:cache
           php artisan route:cache
           php artisan view:cache
           php artisan storage:link
-          chown -R www-data:www-data /public_html  
+          chown -R www-data:www-data /public_html
+        EOF
