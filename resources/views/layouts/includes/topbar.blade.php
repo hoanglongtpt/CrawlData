@@ -157,13 +157,13 @@
         </li> -->
 
         <li class="nav-item-custom">
-            <div class="charge-btn">Nạp Bit</div>
+            <a href="/payment" class="charge-btn">Nạp Bit</a>
         </li>
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <li class="nav-item-custom">
             <span class="balance">100</span>
-            <img class="coin-icon" src="{{asset('assets-theme/img/coin.png')}}" width="32px" height="32px"/>
+            <img class="coin-icon" src="{{asset('assets-theme/img/coin.svg')}}" width="32px" height="32px"/>
         </li>
 
         <div class="topbar-divider d-none d-sm-block"></div>

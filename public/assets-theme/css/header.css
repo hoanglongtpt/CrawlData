@@ -22,8 +22,13 @@
     font-weight: 600;
     font-size: 14px;
 }
+.charge-btn:hover {
+    text-decoration: none;
+    color: white;
+}
 .balance {
     color: blue;
+    font-weight: bold;
 }
 .name-text {
     color: black;
@@ -42,3 +47,4 @@
         font-size: 16px;
     }
 }
+
