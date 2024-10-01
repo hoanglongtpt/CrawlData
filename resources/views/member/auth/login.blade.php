@@ -40,8 +40,8 @@
                     </form>
                     <hr class="divider">
                     <div class="question-group">
-                        <a>Quên mật khẩu?</a>
-                        <a>Tạo tài khoản</a>
+                        <a href="{{route('member.forgot_password')}}">Quên mật khẩu?</a>
+                        <a href="{{route('member.register')}}">Tạo tài khoản</a>
                     </div>
                     <div class="policy-group">
                         <p>Chính sách bảo mật</p>

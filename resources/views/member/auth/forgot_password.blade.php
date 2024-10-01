@@ -8,7 +8,7 @@
                 <div class="login-wrapper">
                     <div class="forgot-password-text">Quên mật khẩu</div>
                     <p>Bạn quên mật khẩu của mình? Đừng lo lắng! Hãy cung cấp cho chúng tôi email bạn. Chúng tôi sẽ gửi cho bạn một liên kết để đặt lại mật khẩu của bạn qua email đó.</p>
-                    <form action="{{route('member.postLogin')}}"  class="user forgot-password-form" method="POST">
+                    <form action="{{route('member.reset_password')}}"  class="user forgot-password-form" method="POST">
                         @csrf
                         <div class="form-group">
                             <label class="email-label">Địa chỉ email của bạn:</label>
@@ -18,7 +18,7 @@
                         </div>
                         
                         <div class="form-group submit-group forgot-password-group">
-                            <button  type="submit" href="index.html" class="forgot-password-btn">Lấy lại mật khẩu</button>
+                            <button  type="submit" class="forgot-password-btn">Lấy lại mật khẩu</button>
                         </div>                        
                     </form>
                 </div>
