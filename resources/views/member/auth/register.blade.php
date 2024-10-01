@@ -9,7 +9,7 @@
                 <div class="logo">LOGO</div>
                 <div class="login-wrapper">
                     <div class="login-text">Đăng ký</div>
-                    <form action="{{route('member.postLogin')}}"  class="user" method="POST">
+                    <form action="{{route('member.postRegister')}}"  class="user" method="POST">
                         @csrf
                         <div class="form-group">
                             <input type="email" name="email" class="form-control-login"
@@ -17,15 +17,15 @@
                                 placeholder="Nhập email của bạn">
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password" class="form-control-login"
-                                id="password" placeholder="Nhập mật khẩu">
+                            <input type="text" name="name" class="form-control-login"
+                                id="name" placeholder="Nhập Tên của bạn">
                         </div>
                         <div class="form-group">
                             <input type="password" name="password" class="form-control-login"
-                                id="confirmPassword" placeholder="Xác nhận mật khẩu">
+                                id="password" placeholder="Nhập mật khẩu">
                         </div>
                         <div class="form-group submit-group">
-                            <button  type="submit" href="index.html" class="login-btn register-btn">Đăng Ký</button>
+                            <button  type="submit" class="login-btn register-btn">Đăng Ký</button>
                         </div>
                         <hr class="divider">
                         <a href="index.html" class="btn btn-google btn-user btn-block social-btn">
