@@ -3,7 +3,7 @@ name: Deploy via FTP
 on:
   push:
     branches:
-      - main  # Triển khai khi có code được push lên nhánh 'main'
+      - main  # Triển khai khi có code được push lên nhánh 'main111111'
 
 jobs:
   deploy:
@@ -35,7 +35,7 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local_dir: ./home/editorvn   # Thư mục chứa mã nguồn của bạn
+        local_dir: ./   # Thư mục chứa mã nguồn của bạn
         server_dir: /public_html   # Thư mục trên server FTP nơi bạn muốn deploy
         git_ftp: true
         dry_run: false  # Đặt là true nếu bạn muốn thử nghiệm trước khi thực hiện
