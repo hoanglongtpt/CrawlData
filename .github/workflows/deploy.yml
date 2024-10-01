@@ -36,7 +36,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local_dir: ./   # Thư mục chứa mã nguồn của bạn
-        server_dir: /public_html/public_html   # Thư mục trên server FTP nơi bạn muốn deploy
+        server_dir: /home/editorvn/public_html   # Thư mục trên server FTP nơi bạn muốn deploy
         git_ftp: true
         dry_run: false  # Đặt là true nếu bạn muốn thử nghiệm trước khi thực hiện
 
