@@ -36,19 +36,12 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local_dir: ./   # Thư mục chứa mã nguồn của bạn
-        server_dir: /public_html   # Thư mục trên server FTP nơi bạn muốn deploy
+        server_dir: /public_html/public_html   # Thư mục trên server FTP nơi bạn muốn deploy
         git_ftp: true
         dry_run: false  # Đặt là true nếu bạn muốn thử nghiệm trước khi thực hiện
 
     - name: Run post-deploy commands
       run: |
         sshpass -p "${{ secrets.FTP_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${FTP_USERNAME}@${FTP_SERVER} << 'EOF'
-          cd /public_html
-          composer install --no-dev
-          php artisan migrate --force
-          php artisan config:cache
-          php artisan route:cache
-          php artisan view:cache
-          php artisan storage:link
           chown -R www-data:www-data /public_html
         EOF
