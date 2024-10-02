@@ -29,7 +29,7 @@
                             <button  type="submit" href="index.html" class="login-btn">Đăng nhập</button>
                         </div>
                         <hr class="divider">
-                        <a href="index.html" class="btn btn-google btn-user btn-block social-btn">
+                        <a href="{{route('member.google-auth')}}" class="btn btn-google btn-user btn-block social-btn">
                             <img width="24px" height="24px" src="{{asset('assets-theme/img/google.svg')}}">
                             Đăng nhập bằng Google
                         </a>

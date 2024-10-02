@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Member;
+use App\Models\User;
 use App\Http\Requests\EditUserAdminRequet;
 use App\Http\Requests\CreateUserAdminRequet;
 use Illuminate\Support\Facades\Log;
@@ -13,21 +14,23 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class MemberController extends Controller
 {
-    public function index (Request $request) {
+    public function index(Request $request)
+    {
         $query = Member::query(true);
         if ($request->email) {
-            $query->where('email',  'LIKE',"%" .$request->email. "%");
+            $query->where('email', 'LIKE', "%" . $request->email . "%");
         }
         if ($request->name) {
-            $query->where('name',  'LIKE',"%" .$request->name. "%");
+            $query->where('name', 'LIKE', "%" . $request->name . "%");
         }
         $items = $query->paginate(10);
-        return view('admin.adminUser.index',compact('items'));
+        return view('admin.adminUser.index', compact('items'));
     }
 
-    public function edit (Request $request) {
+    public function edit(Request $request)
+    {
         try {
-            $user = User::findOrFail($request->id); 
+            $user = User::findOrFail($request->id);
             return view('admin.adminUser.edit', compact('user'));
         } catch (\Exception $e) {
             // Ghi log lỗi
@@ -37,10 +40,11 @@ class MemberController extends Controller
         }
     }
 
-    public function update (EditUserAdminRequet $request) {
+    public function update(EditUserAdminRequet $request)
+    {
         try {
             $user = User::findOrFail($request->id);
-    
+
             $user->email = $request->email;
             $user->name = $request->name;
             $user->save();
@@ -53,14 +57,15 @@ class MemberController extends Controller
         }
     }
 
-    public function store (CreateUserAdminRequet $request) {
+    public function store(CreateUserAdminRequet $request)
+    {
         try {
             $user = new User();
             $user->email = $request->email;
             $user->name = $request->name;
-            $user->password = Hash::make($request->password); 
+            $user->password = Hash::make($request->password);
             $user->save();
-    
+
             Alert::success('Thành công', 'Người dùng đã được tạo thành công!')->autoClose(2000);
             return redirect()->route('user.index')->with('success', 'Tạo người dùng thành công.');
         } catch (\Exception $e) {
@@ -71,9 +76,10 @@ class MemberController extends Controller
     }
 
 
-    public function show (Request $request) {
+    public function show(Request $request)
+    {
         try {
-            $user = User::findOrFail($request->id); 
+            $user = User::findOrFail($request->id);
             return view('admin.adminUser.show', compact('user'));
         } catch (\Exception $e) {
             // Ghi log lỗi
@@ -83,14 +89,16 @@ class MemberController extends Controller
         }
     }
 
-    public function create () {
+    public function create()
+    {
         return view('admin.adminUser.create');
     }
 
-    public function destroy ($id) {
+    public function destroy($id)
+    {
         try {
             $user = User::findOrFail($id);
-            
+
             $user->delete();
             Alert::success('Thành công', 'Xóa người dùng thành công!')->autoClose(2000);
             return redirect()->route('user.index')->with('success', 'Xóa người dùng thành công.');
