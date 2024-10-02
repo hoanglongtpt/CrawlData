@@ -33,10 +33,10 @@
                             <img width="24px" height="24px" src="{{asset('assets-theme/img/google.svg')}}">
                             Đăng nhập bằng Google
                         </a>
-                        <a href="index.html" class="btn btn-facebook btn-user btn-block social-btn">
+                        <!-- <a href="index.html" class="btn btn-facebook btn-user btn-block social-btn">
                             <img width="24px" height="24px" src="{{asset('assets-theme/img/facebook.svg')}}">
                             Đăng nhập bằng Facebook
-                        </a>
+                        </a> -->
                     </form>
                     <hr class="divider">
                     <div class="question-group">

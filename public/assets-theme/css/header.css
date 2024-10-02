@@ -46,5 +46,13 @@
     .page-title {
         font-size: 16px;
     }
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+    .navbar-nav {
+        gap: 4px;
+    }
+    .topbar .nav-item .nav-link {
+        padding: 0;
+    }
 }
-
