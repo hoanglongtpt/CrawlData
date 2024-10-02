@@ -80,3 +80,25 @@
 .m-auto {
     margin: auto;
 }
+
+@media only screen and (max-width: 768px) {
+    .nav-link-layout {
+        justify-content: center;
+    }
+    .price-tag {
+        display: none !important;
+    }
+    .contact-item {
+        justify-content: center;
+    }
+    .contact-header {
+        font-size: 18px;
+    }
+    .contact-logo {
+        width: 36px;
+        height: 36px;
+    }
+    .contact-label {
+        display: none;
+    }
+}
