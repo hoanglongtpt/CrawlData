@@ -7,13 +7,14 @@ use App\Services\ApiService;
 use App\Extensions\Extension;
 use App\Models\PageDowload;
 use Illuminate\Support\Facades\Log;
-
-
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Constants\Constants;
 
 class HomeController extends Controller
 {
     public function index (Request $request) {
-        try {
+        try
+        {
             $categories = PageDowload::all();
             $page_item = PageDowload::where('type','freepik')->first();
             if ($request->type) {
@@ -21,41 +22,45 @@ class HomeController extends Controller
             }
 
             return view('member.index',compact(['categories','page_item']));
-        } catch (\Exception $e) {
+        }
+        catch (\Exception $e)
+        {
             Log::error('Lỗi : ' . $e->getMessage());
             return redirect()->route('home');
         }
     }
 
-    public function GetFreePik (Request $request) {
-
+    public function GetFreePik(Request $request) {
         try {
             $categories = PageDowload::all();
-            $page_item = PageDowload::where('type','freepik')->first();
-            if ($request->type) {
-                $page_item = PageDowload::where('type',$request->type)->first();
+            $page_item = PageDowload::where('type', 'freepik')->first();
+
+            if ($request->type)
+                $page_item = PageDowload::where('type', $request->type)->first();
+
+            $url = null;
+            $id = Extension::GetIDFromLink($request->link);
+
+            if ($request->option == 'icon' && !empty($id))
+                $url = ApiService::DownLoadIconFreepik($id);
+            elseif ($request->option == 'resource' && !empty($id)) {
+                $resource_format = $request->resource_format;
+                $url = ApiService::DownLoadResourceFreepik($id, $resource_format);
             }
 
-            $url = '';
-            $link = $request->link;
-            if ($request->type == 'icon')
-            {
-                $id = Extension::GetIDFromLink($link);
-                if ($id != '') {
-                    $url = ApiService::DownLoadIconFreepik($id);
-                }
+            if ($url == null) {
+                Alert::error(Constants::ALERT_FAILED, ('messages.url_empty'))->autoClose(2000);
+                return redirect()->route('home', ['type' => $request->type]);
             }
-            else
-            {
-                $id = Extension::GetIDFromLink($link);
-                $resource_format = $request->resource_format;
-                if ($id != '') {
-                    $url = ApiService::DownLoadResourceFreepik($id, $resource_format);
-                }
-            }
-            return view('member.index', compact(['categories','page_item','url']));
+
+            return redirect()->route('home', ['type' => $request->type])
+                ->with('categories', $categories)
+                ->with('page_item', $page_item)
+                ->with('url', $url)
+                ->with('id', $id);
         } catch (\Exception $e) {
-            Log::error('Lỗi : ' . $e->getMessage());
+            Log::error('Error: ' . $e->getMessage());
+            Alert::error(Constants::ALERT_FAILED, __('messages.error_server'))->autoClose(2000);
             return redirect()->route('home');
         }
     }

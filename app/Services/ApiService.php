@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class ApiService
 {
@@ -15,34 +16,35 @@ class ApiService
                 'x-freepik-api-key' => self::keyClientFreePik,
             ])->get('https://api.freepik.com/v1/icons/'.$id.'/download');
 
-            if($response['data'] == null)
-            {
-                return $response['message'] ?? "Down load Icon fail";
-            }
+            if ($response['data'] == null)
+                return null;
             else
                 return $response['data']['url'];
         }
         catch (\Exception $e){
-            return "Download Icon fail. ". $e;
+            Log::error('Lỗi : ' . $e->getMessage());
+            return null;
         }
     }
     public static function DownLoadResourceFreepik($id, $resource = "")
     {
         try
         {
-            if($resource != "")
+            if ($resource != "")
                 $resource = "/".$resource;
+
             $response = Http::withHeaders([
                 'x-freepik-api-key' =>  self::keyClientFreePik,
             ])->get('https://api.freepik.com/v1/resources/'.$id.'/download'.$resource);
 
-            if($response['data'] == null)
-                return $response['message'] ?? "Download Resource fail";
+            if ($response['data'] == null)
+                return null;
             else
                 return $response['data']['url'];
         }
         catch (\Exception $e){
-            return "Download Resource fail. ". $e;
+            Log::error('Lỗi : ' . $e->getMessage());
+            return null;
         }
     }
 

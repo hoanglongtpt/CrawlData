@@ -4,8 +4,9 @@
         <!-- Content Row -->
         <div class="content-container">
             <div class="form-container">
-                <form action="{{ route('dowload.' . $page_item->type) }}" method="POST">
+                <form action="{{ route('download.' . $page_item->type) }}" method="POST">
                     @csrf
+                    <input type="hidden" name ="type" value="{{$page_item->type}}" />
                     <div class="card shadow mb-4">
 
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -19,21 +20,20 @@
                                     getlink:</label>
                                 <textarea class="form-control" name="link" id="link" rows="5"></textarea>
                             </div>
-                            <!-- <div style="text-align: center;">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="typeDownload" value="image"
-                                                    checked="">
-                                                <label class="form-check-label">
-                                                    Image/Template - 1xu
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="typeDownload" value="video">
-                                                <label class="form-check-label">
-                                                    Video 4K/HD - 5xu
-                                                </label>
-                                            </div>
-                                        </div> -->
+                            <div style="text-align: center;">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" id ="resource" type="radio" name="option" value="resource" checked="">
+                                    <label class="form-check-label" for = "resource">
+                                        Image/Template - 1xu
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" id ="icon" type="radio" name="option" value="icon">
+                                    <label class="form-check-label" for = "icon">
+                                        Icon - 1xu
+                                    </label>
+                                </div>
+                            </div>
                             <div class="form-group" style="text-align: center;">
                                 <button class="btn btn-lg btn-outline-warning btn-getlink" type="submit"
                                     id="getlink_btn_freepik">
@@ -41,7 +41,7 @@
                                         src="{{ asset('assets-theme/img/get-link-icon.svg') }}">
                                     <span class="text">GETLINK</span>
                                 </button>
-                                <button class="btn btn-lg btn-outline-warning btn-getlink" id="reset_btn">
+                                <button type="button" class="btn btn-lg btn-outline-warning btn-getlink" id="reset_btn">
                                     <img class="" width="30px" height="30px"
                                         src="{{ asset('assets-theme/img/reset-icon.svg') }}">
                                     <span class="text">RESET</span>
@@ -61,12 +61,11 @@
                                         <img class="download-img" src="{{ asset('assets-theme/img/folder-download.png') }}">
                                     </div>
                                     <div class="download-box border-b-dashed flex flex-col items-center gap-2">
-                                        <button class="result-link">freepik_4854.zip</button>
-                                        <a type="button" href={{$url}} class="result-download">DOWNLOAD</a>
+                                        <button class="result-link">{{$page_item -> name  }}_{{$id}}</button>
+                                        <a type="button" href={{$url }} class="result-download">DOWNLOAD</a>
                                     </div>
                                     <div class="border-b-dashed flex justify-center report-link">Báo link download hỏng hoặc gặp
                                         sự cố?</div>
-
                                 </div>
                             @endif
 

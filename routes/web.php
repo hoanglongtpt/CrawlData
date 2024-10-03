@@ -34,13 +34,13 @@ Route::get('/payment', [PaymentController::class, 'payment'])->name('payment');
 
 Route::middleware('auth.member')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('member.logout');
-    Route::post('/freepik', [HomeController::class, 'GetFreePik'])->name('dowload.freepik');
-    Route::post('/motion-array', [HomeController::class, 'GetMotionArray'])->name('dowload.motion-array');
-    Route::post('/envato', [HomeController::class, 'GetEnvato'])->name('dowload.envato');
-    Route::post('/youtube', [HomeController::class, 'GetYoutube'])->name('dowload.youtube');
-    Route::post('/artlist', [HomeController::class, 'GetArtlist'])->name('dowload.artlist');
-    Route::post('/pikbest', [HomeController::class, 'GetPikbest'])->name('dowload.pikbest');
-    Route::post('/tiktok', [HomeController::class, 'GetTiktok'])->name('dowload.tiktok');
+    Route::post('/freepik', [HomeController::class, 'GetFreePik'])->name('download.freepik');
+    Route::post('/motion-array', [HomeController::class, 'GetMotionArray'])->name('download.motion-array');
+    Route::post('/envato', [HomeController::class, 'GetEnvato'])->name('download.envato');
+    Route::post('/youtube', [HomeController::class, 'GetYoutube'])->name('download.youtube');
+    Route::post('/artlist', [HomeController::class, 'GetArtlist'])->name('download.artlist');
+    Route::post('/pikbest', [HomeController::class, 'GetPikbest'])->name('download.pikbest');
+    Route::post('/tiktok', [HomeController::class, 'GetTiktok'])->name('download.tiktok');
 });
 
 Route::get('/login/google', [GoogleAuthController::class, 'redirect'])->name('member.google-auth');

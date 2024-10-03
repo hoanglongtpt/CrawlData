@@ -1,0 +1,98 @@
+[29988:10172:1115/150744.212:WARNING:chrome_main_delegate.cc(660)] This is Chrome version 119.0.6045.124 (not a warning)
+[29988:10172:1115/150744.319:INFO:policy_logger.cc(145)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(168) Starting CBCM Controller Initialization
+[29988:10172:1115/150744.329:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.329:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.332:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.333:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.349:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.349:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.349:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.349:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.349:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.349:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.349:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.349:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.349:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.349:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.349:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.349:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.349:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.393:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.393:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.393:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.408:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.408:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.542:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.542:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.544:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.546:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150744.570:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150745.374:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150745.374:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150745.477:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150746.707:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150747.016:INFO:CONSOLE(350)] "Google Maps JavaScript API has been loaded directly without a callback. This is not supported and can lead to race conditions and suboptimal performance. For supported loading patterns please see https://goo.gle/js-api-loading", source: https://maps.googleapis.com/maps/api/js?client=gme-vigilantsolutions&sensor=false&libraries=drawing,places,geometry,visualization&language=en (350)
+[29988:10172:1115/150748.953:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150748.953:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150748.954:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150748.958:INFO:CONSOLE(1)] "Unhandled Promise rejection: Failed to fetch ; Zone: <root> ; Task: Promise.then ; Value: TypeError: Failed to fetch TypeError: Failed to fetch
+    at https://learn-nvls.com/VM8/polyfills.cdf64d3e6e75e62e.js:1:19390
+    at o.<computed> (https://learn-nvls.com/VM8/polyfills.cdf64d3e6e75e62e.js:1:13465)
+    at https://learn-nvls.com/VM8/main.9f363522963e3569.js:1:45409
+    at Generator.next (<anonymous>)
+    at e (https://learn-nvls.com/VM8/main.9f363522963e3569.js:1:2174448)
+    at F (https://learn-nvls.com/VM8/main.9f363522963e3569.js:1:2174650)
+    at https://learn-nvls.com/VM8/main.9f363522963e3569.js:1:2174709
+    at new e (https://learn-nvls.com/VM8/polyfills.cdf64d3e6e75e62e.js:1:18368)
+    at https://learn-nvls.com/VM8/main.9f363522963e3569.js:1:2174591
+    at R.initialize (https://learn-nvls.com/VM8/main.9f363522963e3569.js:1:45536)", source: https://learn-nvls.com/VM8/polyfills.cdf64d3e6e75e62e.js (1)
+[29988:10172:1115/150748.967:INFO:CONSOLE(350)] "Google Maps JavaScript API has been loaded directly without a callback. This is not supported and can lead to race conditions and suboptimal performance. For supported loading patterns please see https://goo.gle/js-api-loading", source: https://maps.googleapis.com/maps/api/js?client=gme-vigilantsolutions&sensor=false&libraries=drawing,places,geometry,visualization&language=en (350)
+[29988:10172:1115/150749.306:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150749.306:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150749.576:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150750.954:INFO:CONSOLE(105)] "Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://learn-nvls.com/VM8_Auth/font/arial.ttf", source: https://learn-nvls.com/VM8_Auth/Login/VehicleManager_web/https%3A%2F%2Flearn-nvls.com%2FVM8%2Findex.html (105)
+[29988:10172:1115/150750.963:INFO:CONSOLE(0)] "[DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o", source: https://learn-nvls.com/VM8_Auth/Login/VehicleManager_web/https%3A%2F%2Flearn-nvls.com%2FVM8%2Findex.html (0)
+[29988:10172:1115/150754.103:ERROR:policy_logger.cc(157)] :components\policy\core\browser\policy_conversions_client.cc(317) DeveloperToolsDisabled has an error of type: Ignored because it was overridden by DeveloperToolsAvailability.
+[29988:10172:1115/150754.769:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150754.769:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150754.769:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150754.769:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150755.521:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150755.521:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150756.741:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150756.749:INFO:CONSOLE(350)] "Google Maps JavaScript API has been loaded directly without a callback. This is not supported and can lead to race conditions and suboptimal performance. For supported loading patterns please see https://goo.gle/js-api-loading", source: https://maps.googleapis.com/maps/api/js?client=gme-vigilantsolutions&sensor=false&libraries=drawing,places,geometry,visualization&language=en (350)
+[29988:10172:1115/150757.359:INFO:CONSOLE(1)] "[object Object]", source: https://learn-nvls.com/VM8/main.9f363522963e3569.js (1)
+[29988:10172:1115/150757.934:INFO:CONSOLE(1)] "==getListSaveSearch e:  Error: NG02100", source: https://learn-nvls.com/VM8/69.09110fdaac35c1b3.js (1)
+[29988:10172:1115/150801.757:INFO:CONSOLE(67)] "Google Maps JavaScript API warning: SensorNotRequired https://developers.google.com/maps/documentation/javascript/error-messages#sensor-not-required", source: https://maps.googleapis.com/maps-api-v3/api/js/53/14/util.js (67)
+[29988:10172:1115/150805.073:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150805.073:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150805.247:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150805.247:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150805.297:WARNING:controller_impl.cc(1190)] Background download complete, client: 6, completion type: 0, file size:265059
+[29988:10172:1115/150805.589:INFO:CONSOLE(1)] "===== onConfirmAndApplyDateChanged:  [object Object]", source: https://learn-nvls.com/VM8/69.09110fdaac35c1b3.js (1)
+[29988:10172:1115/150806.407:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150806.407:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150806.571:WARNING:controller_impl.cc(1190)] Background download complete, client: 6, completion type: 0, file size:5088
+[29988:10172:1115/150807.204:WARNING:controller_impl.cc(1190)] Background download complete, client: 6, completion type: 0, file size:33994661
+[29988:10172:1115/150807.457:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150807.457:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150807.649:WARNING:controller_impl.cc(1190)] Background download complete, client: 6, completion type: 0, file size:883094
+[29988:10172:1115/150808.018:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150808.018:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150808.290:WARNING:controller_impl.cc(1190)] Background download complete, client: 6, completion type: 0, file size:2746900
+[29988:10172:1115/150809.708:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150809.708:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150809.869:WARNING:controller_impl.cc(1190)] Background download complete, client: 6, completion type: 0, file size:45125
+[29988:10172:1115/150812.614:INFO:CONSOLE(1)] " ============> PS Filters:  [object Object]", source: https://learn-nvls.com/VM8/main.9f363522963e3569.js (1)
+[29988:10172:1115/150814.404:WARNING:pref_value_store.cc(271)] Expected type for safebrowsing.enabled is boolean but got string in store 5
+[29988:10172:1115/150815.909:INFO:CONSOLE(1)] "-- QS Query SessionId:  155e58a5366942c0b9add7fa571c71cc", source: https://learn-nvls.com/VM8/main.9f363522963e3569.js (1)
+[29988:10172:1115/150818.916:INFO:CONSOLE(1)] "-- QS Query SessionId:  155e58a5366942c0b9add7fa571c71cc", source: https://learn-nvls.com/VM8/main.9f363522963e3569.js (1)
+[29988:10172:1115/150818.922:INFO:CONSOLE(1)] "bound qs rs 26.05566218 -121.50229381", source: https://learn-nvls.com/VM8/main.9f363522963e3569.js (1)
+[29988:10172:1115/150818.922:INFO:CONSOLE(1)] "bound qs rs 43.09623526 -73.74395425", source: https://learn-nvls.com/VM8/main.9f363522963e3569.js (1)
+[29988:10172:1115/150818.923:INFO:CONSOLE(1)] "zoom after bound 5", source: https://learn-nvls.com/VM8/69.09110fdaac35c1b3.js (1)
+[29988:10172:1115/150818.972:INFO:CONSOLE(1)] "bound qs rs 26.05566218 -121.50229381", source: https://learn-nvls.com/VM8/main.9f363522963e3569.js (1)
+[29988:10172:1115/150818.973:INFO:CONSOLE(1)] "bound qs rs 43.09623526 -73.74395425", source: https://learn-nvls.com/VM8/main.9f363522963e3569.js (1)
+[29988:10172:1115/150818.996:INFO:CONSOLE(1)] "zoom after bound 5", source: https://learn-nvls.com/VM8/69.09110fdaac35c1b3.js (1)
+[29988:10172:1115/150856.800:INFO:CONSOLE(1)] "lastCheck =  ; lastcallAPI = 2023-11-15 15:08:18 recent call =  ", source: https://learn-nvls.com/VM8/main.9f363522963e3569.js (1)
+[29988:10172:1115/150856.800:INFO:CONSOLE(1)] "false", source: https://learn-nvls.com/VM8/main.9f363522963e3569.js (1)
+[29988:10172:1115/150857.919:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
