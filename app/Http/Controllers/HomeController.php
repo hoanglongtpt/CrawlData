@@ -73,5 +73,30 @@ class HomeController extends Controller
             return response()->json(['error' => __('messages.error_server')], 500);
         }
     }
-    
+
+
+    public function GetMotionArray(Request $request){
+        try{
+            $categories = PageDowload::all();
+            $page_item = PageDowload::where('type', 'freepik')->first();
+
+            if ($request->type)
+                $page_item = PageDowload::where('type', $request->type)->first();
+
+            $url = null;
+            $id = Extension::GetIDFromLink($request->link);
+            $pythonScriptPath = public_path('python/motionarray.py');
+            $command = "python $pythonScriptPath " . escapeshellarg($id);
+            $output = shell_exec($command);
+
+            dd($output);
+        }
+        catch  (\Exception $e) {
+            Log::error('Error: ' . $e->getMessage());
+            Alert::error(Constants::ALERT_FAILED, __('messages.error_server'))->autoClose(2000);
+            return redirect()->route('home');
+        }
+
+    }
+
 }

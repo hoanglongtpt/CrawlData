@@ -1,3 +1,2 @@
-2024/10/03-10:04:17.302 45bc Reusing MANIFEST D:\Craw video\TestProfile\Profile 2\GCM Store/MANIFEST-000001
-2024/10/03-10:04:17.304 45bc Recovering log #3
-2024/10/03-10:04:17.305 45bc Reusing old log D:\Craw video\TestProfile\Profile 2\GCM Store/000003.log 
+2024/10/04-00:14:18.808 109e20 Creating DB D:\laragon\laragon\www\CrawlData\public\python\profile\motionarray\Profile 2\GCM Store since it was missing.
+2024/10/04-00:14:18.812 109e20 Reusing MANIFEST D:\laragon\laragon\www\CrawlData\public\python\profile\motionarray\Profile 2\GCM Store/MANIFEST-000001

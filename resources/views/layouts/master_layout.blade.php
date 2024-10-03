@@ -25,7 +25,7 @@
     <link href="{{asset('assets-theme/css/sidebar.css')}}" rel="stylesheet">
     <link href="{{asset('assets-theme/css/header.css')}}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <link href="{{asset('assets-theme/css/profile.css')}}" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -106,6 +106,7 @@
     <script src="{{asset('assets-theme/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('assets-theme/js/demo/chart-pie-demo.js')}}"></script>
     <script src="{{asset('assets-theme/custom-js/sidebar.js')}}"></script>
+    <script src="{{asset('assets-theme/custom-js/profile.js')}}"></script>
 
 </body>
 

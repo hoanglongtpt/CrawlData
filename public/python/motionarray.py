@@ -1,17 +1,14 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.service import Service
 import undetected_chromedriver as uc
 import time
 import json
-import sys
 
 #define
 url = "https://motionarray.com/"
 url_down = "https://motionarray.com/account/download/"
-user = "conganvinhlong02@gmail.com"
-passw = "Quy0799008160"
-
 def getLink(source):
     try:
         newSource = source.split("<pre>")[1]
@@ -25,35 +22,20 @@ def getLink(source):
 def motionarray(id):
     # Set Chrome options
     options = uc.ChromeOptions()
-    options.add_argument("--headless=new")
+    options.add_argument("--safebrowsing-disable-download-protection")
+    options.add_argument(r"--user-data-dir=D:\laragon\laragon\www\CrawlData\public\python\profile\motionarray")
+    options.add_argument("--profile-directory=Profile 2")
+    #options.add_argument("--headless")
     # Initialize Chrome WebDriver
-    driver = uc.Chrome(use_subprocess=True,options=options)
+    chrome_driver_service = Service(r"D:\laragon\laragon\www\CrawlData\public\python\profile\motionarray\Profile 2\chromedriver.exe")
+    driver = uc.Chrome(service = chrome_driver_service, options=options)
     driver.maximize_window()
-    driver.delete_all_cookies()
+    #driver.delete_all_cookies()
     try:
-        # Open URL
-        driver.get(url)
-        time.sleep(1)
-
         # Set up explicit wait
         wait = WebDriverWait(driver, 50)
 
-        # Find and click the 'Sign In' button
-        btn_login = wait.until(EC.presence_of_element_located((By.XPATH, "//button//*[text() = 'Sign In']")))
-        btn_login.click()
-
-        # Find input fields and login
-        input_email = wait.until(EC.presence_of_element_located((By.ID, "Email")))
-        input_pass = driver.find_element(By.ID, "Password")
-        btn_submit_login = driver.find_element(By.XPATH, "//button[contains(text(), 'Sign In')]")
-
-        # Input login credentials
-        if input_email.is_displayed():
-            input_email.send_keys(user)
-            input_pass.send_keys(passw)
-            btn_submit_login.click()
-
-        time.sleep(2)
+        time.sleep(1)
         #url down
         link_down = url_down + id
         driver.get(link_down)
@@ -77,8 +59,9 @@ def motionarray(id):
 # Call the function
 if __name__ == "__main__":
     try:
-        if len(sys.argv):
-            print(motionarray(sys.argv[1]))
+        # if len(sys.argv):
+        #     print(motionarray(sys.argv[1]))
+        print(motionarray("2840629"))
     except Exception:
         pass
 
