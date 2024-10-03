@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Extension;
+namespace App\Extensions;
 
 class Extension
 {

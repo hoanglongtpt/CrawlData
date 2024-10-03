@@ -175,9 +175,26 @@
     margin-top: 40px;
 }
 
-
 @media only screen and (max-width: 1024px) {
     .banner-container {
         display: none;
+    }
+    .content-container {
+        flex-direction: column;
+    }
+    .btn-getlink {
+        margin-bottom: 8px;
+        font-size: 1rem;
+        width: 100%;
+    }
+    .btn-getlink img {
+        width: 24px;
+        height: 24px;
+    }
+    .format-file-img {
+        height: 30px;
+    }
+    .feedback-group {
+        padding: 0;
     }
 }

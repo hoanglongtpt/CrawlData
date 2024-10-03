@@ -89,7 +89,7 @@
             </div>
         </li> --}} -->
 
-       
+
         <!-- <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -163,7 +163,7 @@
 
         <li class="nav-item-custom">
             <span class="balance">100</span>
-            <img class="coin-icon" src="{{asset('assets-theme/img/coin.svg')}}" width="32px" height="32px"/>
+            <img class="coin-icon" src="{{asset('assets-theme/img/coin.svg')}}" width="32px" height="32px" />
         </li>
 
         <div class="topbar-divider d-none d-sm-block"></div>
@@ -172,7 +172,12 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline small name-text">Phạm Xuân Quý</span>
+                @if (Auth::check())
+                <span class="mr-2 d-none d-lg-inline small name-text">{{ Auth::user()->name }}</span>
+                @else
+                <span class="mr-2 d-none d-lg-inline small name-text">{{ __('messages.welcome') }}</span>
+                @endif
+
                 <img class="img-profile rounded-circle"
                     src="{{asset('assets-theme/img/undraw_profile.svg')}}">
             </a>

@@ -8,18 +8,20 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-            <div class="nav-link-layout">
-                <div>
-                    <img class="logo-item" class="logo-item" src="{{asset('assets-theme/img/logo/Freepik.png')}}" />
-                    <span>FreePik</span>
+    @foreach ($categories as $item)
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('home',['type' => $item->type]) }}">
+                <div class="nav-link-layout">
+                    <div>
+                        <img class="logo-item" src="{{ asset($item->image) }}" />
+                        <span>{{$item->name}}</span>
+                    </div>
+                    <span class="price-tag">{{ $item->amount }}k</span>
                 </div>
-                <span class="price-tag">1k</span>
-            </div>
-        </a>
-    </li>
-    <li class="nav-item">
+            </a>
+        </li>
+    @endforeach
+    {{-- <li class="nav-item">
         <a class="nav-link" href="index.html">
             <div class="nav-link-layout">
                 <div>
@@ -84,7 +86,7 @@
                 <span class="price-tag">Free</span>
             </div>
         </a>
-    </li>
+    </li> --}}
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
