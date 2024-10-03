@@ -34,6 +34,7 @@ Route::get('/payment', [PaymentController::class, 'payment'])->name('payment');
 
 Route::middleware('auth.member')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('member.logout');
+    Route::post('/freepik', [HomeController::class, 'GetFreePik'])->name('dowload.freepik');
 });
 
 Route::get('/login/google', [GoogleAuthController::class, 'redirect'])->name('member.google-auth');

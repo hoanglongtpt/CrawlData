@@ -16,7 +16,6 @@ class ApiService
                 'x-freepik-api-key' => self::keyClientFreePik,
             ])->get('https://api.freepik.com/v1/icons/'.$id.'/download');
 
-            dd($response['data']['url']);
             if($response['data'] == null)
             {
                 return $response['message'] ?? "Down load Icon fail";
@@ -38,7 +37,6 @@ class ApiService
                 'x-freepik-api-key' =>  self::keyClientFreePik,
             ])->get('https://api.freepik.com/v1/resources/'.$id.'/download'.$resource);
 
-            dd($response['data']['url']);
             if($response['data'] == null)
             {
                 return $response['message'] ?? "Down load Resource fail";
