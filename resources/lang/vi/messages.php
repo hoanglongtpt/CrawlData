@@ -19,5 +19,9 @@ return [
 
     'error_server' => 'Đã có lỗi xảy ra, vui lòng thử lại sau.',
 
-    'wellcome' => 'Chào mừng bạn đến với EditorVN!'
+    'wellcome' => 'Chào mừng bạn đến với EditorVN!',
+
+    'download_not_match' => 'Có thể bạn đã chọn sai option để get link!',
+
+    'url_empty' => 'Không thể get link. Vui lòng thử lại lần nữa.',
 ];
