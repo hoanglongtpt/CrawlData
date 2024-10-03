@@ -50,24 +50,25 @@
                             {{-- <div id="flashmessage" class="submit-warning border-warning">
                                 <p class="warning-text">Oops! Vui lòng nhập link pikbest</p>
                                 <button class="warning-text btn-close">&#x2715;</button>
-                            </div>
-                            <div id="flashmessage" class="submit-warning border-error">
-                                <p class="error-text">Oops! Bạn chưa đăng nhập</p>
-                                <button class="error-text btn-close">&#x2715;</button>
                             </div> --}}
-                            @if (isset($url))
+                            <div id="flashmessage" class="submit-warning border-error" style="display:none;">
+                                <p class="error-text"></p>
+                            </div>
+                            <div id="wp-result">
+                            </div>
+                            {{-- @if (isset($url))
                                 <div id="result" class="result-container">
                                     <div class="flex justify-center download-box  border-b-dashed">
                                         <img class="download-img" src="{{ asset('assets-theme/img/folder-download.png') }}">
                                     </div>
                                     <div class="download-box border-b-dashed flex flex-col items-center gap-2">
-                                        <button class="result-link">{{$page_item -> name  }}_{{$id}}</button>
-                                        <a type="button" href={{$url }} class="result-download">DOWNLOAD</a>
+                                        <button class="result-link">{{$page_item ->name}}_{{$id}}</button>
+                                        <a type="button" href={{$url}} class="result-download">DOWNLOAD</a>
                                     </div>
                                     <div class="border-b-dashed flex justify-center report-link">Báo link download hỏng hoặc gặp
                                         sự cố?</div>
                                 </div>
-                            @endif
+                            @endif --}}
 
                             <!-- <div id="loadingbar" class="form-group">
                                             <h4 class="small font-weight-bold"><span id="title_loadingbar"></span><span
@@ -109,4 +110,64 @@
             </div>
         </div>
     </div>
+
+    <script>
+        var pageItemType = "{{ $page_item->type }}"; 
+        switch (pageItemType) {
+            case 'freepik':
+                var url = "{{ route('download.freepik') }}" 
+                break;
+            case 'motion-array':
+                var url = "{{ route('download.motion-array') }}"
+                break;
+            default:
+                var url = "{{ route('download.envato') }}"
+                break;
+        }
+        
+        // Giá trị động mà bạn muốn thay thế
+        $(document).ready(function() {
+            $('#getlink_btn_freepik').click(function(event) {
+                event.preventDefault(); // Ngăn chặn hành động mặc định của form
+    
+                $.ajax({
+                    url: url, // URL để gửi request
+                    type: "POST", // Phương thức gửi
+                    data: $('form').serialize(), // Dữ liệu của form
+                    success: function(response) {
+                        // Xử lý dữ liệu trả về
+                        if (response.url) {
+                            $('#wp-result').html(`
+                                <div id="result" class="result-container">
+                                    <div class="flex justify-center download-box border-b-dashed">
+                                        <img class="download-img" src="{{ asset('assets-theme/img/folder-download.png') }}">
+                                    </div>
+                                    <div class="download-box border-b-dashed flex flex-col items-center gap-2">
+                                        <button class="result-link">${response.page_item.name}_${response.id}</button>
+                                        <a type="button" href="${response.url}" class="result-download">DOWNLOAD</a>
+                                    </div>
+                                    <div class="border-b-dashed flex justify-center report-link">Báo link download hỏng hoặc gặp sự cố?</div>
+                                </div>
+                            `);
+                            $('#flashmessage').hide(); // Ẩn thông báo lỗi nếu có
+                        } else {
+                            $('#flashmessage .error-text').text('Không có URL nào được trả về.');
+                            $('#flashmessage').show(); // Hiển thị thông báo lỗi
+                        }
+                    },
+                    error: function(xhr) {
+                        // Xử lý lỗi từ server
+                        if (xhr.responseJSON && xhr.responseJSON.error) {
+                            $('#flashmessage .error-text').text(xhr.responseJSON.error); // Cập nhật thông báo lỗi
+                        } else {
+                            $('#flashmessage .error-text').text('Đã xảy ra lỗi khi gửi yêu cầu.'); // Lỗi chung
+                        }
+                        $('#flashmessage').show(); // Hiển thị thông báo lỗi
+                    }
+                });
+            });
+        });
+    </script>
+    
+    
 @endsection
