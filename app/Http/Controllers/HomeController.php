@@ -34,34 +34,44 @@ class HomeController extends Controller
         try {
             $categories = PageDowload::all();
             $page_item = PageDowload::where('type', 'freepik')->first();
-
-            if ($request->type)
+    
+            if ($request->type) {
                 $page_item = PageDowload::where('type', $request->type)->first();
-
+            }
+    
             $url = null;
             $id = Extension::GetIDFromLink($request->link);
-
-            if ($request->option == 'icon' && !empty($id))
+    
+            if ($request->option == 'icon' && !empty($id)) {
                 $url = ApiService::DownLoadIconFreepik($id);
-            elseif ($request->option == 'resource' && !empty($id)) {
+            } elseif ($request->option == 'resource' && !empty($id)) {
                 $resource_format = $request->resource_format;
                 $url = ApiService::DownLoadResourceFreepik($id, $resource_format);
             }
-
+    
             if ($url == null) {
-                Alert::error(Constants::ALERT_FAILED, ('messages.url_empty'))->autoClose(2000);
-                return redirect()->route('home', ['type' => $request->type]);
+                Alert::error(Constants::ALERT_FAILED, __('messages.url_empty'))->autoClose(2000);
+                return response()->json(['error' => __('messages.url_empty')], 400);
             }
-
-            return redirect()->route('home', ['type' => $request->type])
-                ->with('categories', $categories)
-                ->with('page_item', $page_item)
-                ->with('url', $url)
-                ->with('id', $id);
+    
+            // Tạo mảng với tất cả dữ liệu cần truyền
+            $data = [
+                'categories' => $categories,
+                'page_item' => $page_item,
+                'url' => $url,
+                'id' => $id,
+            ];
+            // Chuyển hướng và truyền dữ liệu
+            return response()->json([
+                'url' => $url,
+                'page_item' => $page_item,
+                'id' => $id,
+            ]);
         } catch (\Exception $e) {
             Log::error('Error: ' . $e->getMessage());
             Alert::error(Constants::ALERT_FAILED, __('messages.error_server'))->autoClose(2000);
-            return redirect()->route('home');
+            return response()->json(['error' => __('messages.error_server')], 500);
         }
     }
+    
 }
