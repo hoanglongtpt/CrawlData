@@ -38,6 +38,26 @@ class ApiService
                 'x-freepik-api-key' =>  self::keyClientFreePik,
             ])->get('https://api.freepik.com/v1/resources/'.$id.'/download'.$resource);
 
+            if($response['data'] == null)
+            {
+                return $response['message'] ?? "Down load Resource fail";
+            }
+            else
+                return $response['data']['url'];
+        }
+        catch (\Exception $e){
+            return "Down load Resource fail. ". $e;
+        }
+    }
+
+    public static function DownLoadResourceEnvato($id)
+    {
+        try
+        {
+            $response = Http::withHeaders([
+                'x-freepik-api-key' =>  self::keyClientFreePik,
+            ])->get('https://api.freepik.com/v1/resources/'.$id.'/download');
+
             dd($response['data']['url']);
             if($response['data'] == null)
             {

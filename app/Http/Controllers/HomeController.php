@@ -10,6 +10,11 @@ class HomeController extends Controller
 {
     public function index (Request $request) {
 
+        $pythonScriptPath = public_path('python/motionarray.py');
+        $input = "2840629";
+        $command = "python $pythonScriptPath " . escapeshellarg($input);
+        $output = shell_exec($command);
+        dd($output);
 
         return view('member.index');
     }
