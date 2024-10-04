@@ -19,5 +19,5 @@ return [
 
     'error_server' => 'Đã có lỗi xảy ra, vui lòng thử lại sau.',
 
-    'wellcome' => 'Chào mừng bạn đến với EditorVN!'
+    'welcome' => 'Chào mừng bạn đến với EditorVN!'
 ];

@@ -13,4 +13,23 @@ class Member  extends Authenticatable
 
     use HasFactory;
     protected $table = 'members';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'user_name',
+        'google_id',
+        'email',
+        'type',
+        'status'
+    ];
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }
