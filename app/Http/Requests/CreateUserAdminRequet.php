@@ -36,6 +36,7 @@ class CreateUserAdminRequet extends FormRequest
     {
         return [
             'email.required' => 'Vui lòng nhập email.',
+            'email.email' => 'Email không đúng định dạng.',
             'name.required' => 'Vui lòng nhập tên.',
         ];
     }
