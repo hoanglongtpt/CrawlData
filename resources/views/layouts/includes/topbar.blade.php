@@ -175,7 +175,7 @@
                 @if (Auth::check())
                 <span class="mr-2 d-none d-lg-inline small name-text">{{ Auth::user()->name }}</span>
                 @else
-                <span class="mr-2 d-none d-lg-inline small name-text">{{ __('messages.welcome') }}</span>
+                <span class="mr-2 d-none d-lg-inline small name-text">{{ __('messages.wellcome') }}</span>
                 @endif
 
                 <img class="img-profile rounded-circle"
