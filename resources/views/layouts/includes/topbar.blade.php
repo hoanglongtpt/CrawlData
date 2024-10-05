@@ -160,9 +160,9 @@
             <a href="/payment" class="charge-btn">Nạp Bit</a>
         </li>
         <div class="topbar-divider d-none d-sm-block"></div>
-        @if (Auth::check())
+        @if (Auth::guard('member')->check())
         <li class="nav-item-custom">
-            <span class="balance">100</span>
+            <span class="balance">{{ Auth::guard('member')->user()->account_balance}}</span>
             <img class="coin-icon" src="{{asset('assets-theme/img/coin.svg')}}" width="32px" height="32px" />
         </li>
         <div class="topbar-divider d-none d-sm-block"></div>
@@ -173,8 +173,8 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                @if (Auth::check())
-                <span class="mr-2 d-none d-lg-inline small name-text">{{ Auth::user()->name }}</span>
+                @if (Auth::guard('member')->check())
+                <span class="mr-2 d-none d-lg-inline small name-text">{{ Auth::guard('member')->user()->name }}</span>
                 @else
                 <span class="mr-2 d-none d-lg-inline small name-text">{{ __('messages.wellcome') }}</span>
                 @endif
@@ -188,10 +188,10 @@
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Hồ sơ cá nhân
                 </a>
-                <a class="dropdown-item" href="#">
+                {{-- <a class="dropdown-item" href="#">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     Cài đặt
-                </a>
+                </a> --}}
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{route('member.logout')}}">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

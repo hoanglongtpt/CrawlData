@@ -6,11 +6,11 @@
                 <div class="header">Thông tin tài khoản</div>
                 <div class="profile-layout">
                     <div class="information">
-                        <img src="{{asset('assets-theme/img/avatar.png')}}" class="avatar">
+                        <img src="{{ asset('assets-theme/img/avatar.png') }}" class="avatar">
                         <div class="info-group">
-                            <h2 class="name">{{$user->name}}</h2>
-                            <div class="balance"><span class="quantity">100</span> xu</div>
-                            <div class="balance"><span class="quantity">23</span> ảnh tải về trong 30 ngày qua</div>
+                            <h2 class="name">{{ $user->name }}</h2>
+                            <div class="balance"><span class="quantity">{{ $user->account_balance }}</span> xu</div>
+                            <div class="balance"><span class="quantity">23</span> ảnh tải về trong hôm nay</div>
                         </div>
                     </div>
                     <div class="tab-container">
@@ -23,11 +23,11 @@
                                 <div class="profile-info-layout">
                                     <div class="profile-info-item">
                                         <label class="profile-label">Tên hiển thị</label>
-                                        <span>{{$user->name}}</span>
+                                        <span>{{ $user->name }}</span>
                                     </div>
                                     <div class="profile-info-item">
                                         <label class="profile-label">Địa chỉ email</label>
-                                        <span>{{$user->email}}</span>
+                                        <span>{{ $user->email }}</span>
                                     </div>
                                     <div class="profile-info-item">
                                         <label class="profile-label">Mật khẩu</label>
@@ -37,8 +37,26 @@
 
                             </div>
                             <div class="content" id="tab2">
-                                Tài khoản được liên kết với dịch vụ google.<br/>
-                                Vui lòng thay đổi mật khẩu của tài khoản google để tăng tính bảo mật.
+                                <div class="container mt-3">
+                                    <form action="/action_page.php">
+                                        <div class="mb-3 mt-3">
+                                            <label for="old_password">Mật khẩu cũ:</label>
+                                            <input type="password" class="form-control" id="old_password"
+                                                placeholder="Nhập mật khẩu cũ" name="old_password">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="new_password">Mật Khẩu mới:</label>
+                                            <input type="password" class="form-control" id="new_password"
+                                                placeholder="Nhập mật khẩu mới" name="new_password">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="confirm_pass">Mật khẩu:</label>
+                                            <input type="password" class="form-control" id="confirm_pass"
+                                                placeholder="Nhập lại mật khẩu mới" name="confirm_pass">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -59,48 +77,73 @@
                         </label>
                         <label>
                             Tìm kiếm
-                            <input type="search" class="custom-input form-control form-control-sm" placeholder="" aria-controls="download-table">
+                            <input type="search" class="custom-input form-control form-control-sm" placeholder=""
+                                aria-controls="download-table">
                         </label>
                     </div>
-                    <table class="table table-bordered dataTable no-footer" id="download-table" width="100%" cellspacing="0" role="grid" aria-describedby="download-table_info" style="width: 100%;">
+                    <table class="table table-bordered dataTable no-footer" id="download-table" width="100%"
+                        cellspacing="0" role="grid" aria-describedby="download-table_info" style="width: 100%;">
                         <thead>
                             <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="#: activate to sort column descending" style="width: 59.2px;" aria-sort="ascending">#</th>
-                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="Thời gian: activate to sort column ascending" style="width: 174.2px;">Thời gian</th>
-                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="Link gốc: activate to sort column ascending" style="width: 160.2px;">Link gốc</th>
-                                <th class="text-center sorting" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="Tải lại: activate to sort column ascending" style="width: 124px;">Tải lại</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="download-table" rowspan="1"
+                                    colspan="1" aria-label="#: activate to sort column descending" style="width: 59.2px;"
+                                    aria-sort="ascending">#</th>
+                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1"
+                                    colspan="1" aria-label="Thời gian: activate to sort column ascending"
+                                    style="width: 174.2px;">Thời gian</th>
+                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1"
+                                    colspan="1" aria-label="Link gốc: activate to sort column ascending"
+                                    style="width: 160.2px;">Link gốc</th>
+                                <th class="text-center sorting" tabindex="0" aria-controls="download-table"
+                                    rowspan="1" colspan="1" aria-label="Tải lại: activate to sort column ascending"
+                                    style="width: 124px;">Tải lại</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- <tr class="odd">
-                                <td valign="top" colspan="4" class="dataTables_empty">Không có mục nào</td>
-                            </tr> -->
+                                    <td valign="top" colspan="4" class="dataTables_empty">Không có mục nào</td>
+                                </tr> -->
                             <tr class="odd" role="row">
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 59.2px;" aria-sort="ascending">1</th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">07/09/2024 - 12:07:01 AN</th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 160.2px;"><a href="https://vngraphic.com/profile#download-history">https://vngraphic.com/profile#download-history</a></th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 124px;">Tải lại</th>
+                                <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                    colspan="1" style="width: 59.2px;" aria-sort="ascending">1</th>
+                                <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                    colspan="1" style="width: 174.2px;">07/09/2024 - 12:07:01 AN</th>
+                                <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                    colspan="1" style="width: 160.2px;"><a
+                                        href="https://vngraphic.com/profile#download-history">https://vngraphic.com/profile#download-history</a>
+                                </th>
+                                <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                    colspan="1" style="width: 124px;">Tải lại</th>
                             </tr>
                             <tr role="row">
-                                <th class="table-item-custom"  aria-controls="download-table" rowspan="1" colspan="1"  style="width: 59.2px;" aria-sort="ascending">2</th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">07/09/2024 - 12:07:01 AN</th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 160.2px;"><a href="https://vngraphic.com/profile#download-history">https://vngraphic.com/profile#download-history</a></th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 124px;">Tải lại</th>
+                                <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                    colspan="1" style="width: 59.2px;" aria-sort="ascending">2</th>
+                                <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                    colspan="1" style="width: 174.2px;">07/09/2024 - 12:07:01 AN</th>
+                                <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                    colspan="1" style="width: 160.2px;"><a
+                                        href="https://vngraphic.com/profile#download-history">https://vngraphic.com/profile#download-history</a>
+                                </th>
+                                <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                    colspan="1" style="width: 124px;">Tải lại</th>
                             </tr>
                         </tbody>
                     </table>
                     <div class="row">
                         <div class="col-sm-12 col-md-5">
-                            <div class="dataTables_info" id="download-table_info" role="status" aria-live="polite"></div>
+                            <div class="dataTables_info" id="download-table_info" role="status" aria-live="polite">
+                            </div>
                         </div>
                         <div class="col-sm-12 col-md-7">
                             <div class="dataTables_paginate paging_simple_numbers" id="download-table_paginate">
                                 <ul class="pagination">
                                     <li class="paginate_button page-item previous disabled" id="download-table_previous">
-                                        <a href="#" aria-controls="download-table" data-dt-idx="0" tabindex="0" class="page-link">Trước</a>
+                                        <a href="#" aria-controls="download-table" data-dt-idx="0" tabindex="0"
+                                            class="page-link">Trước</a>
                                     </li>
                                     <li class="paginate_button page-item next disabled" id="download-table_next">
-                                        <a href="#" aria-controls="download-table" data-dt-idx="1" tabindex="0" class="page-link">Kế tiếp</a>
+                                        <a href="#" aria-controls="download-table" data-dt-idx="1" tabindex="0"
+                                            class="page-link">Kế tiếp</a>
                                     </li>
                                 </ul>
                             </div>
@@ -123,62 +166,83 @@
                         </label>
                         <label>
                             Tìm kiếm
-                            <input type="search" class="custom-input form-control form-control-sm" placeholder="" aria-controls="download-table">
+                            <input type="search" class="custom-input form-control form-control-sm" placeholder=""
+                                aria-controls="download-table">
                         </label>
                     </div>
-                    <table class="table table-bordered dataTable no-footer" id="download-table" width="100%" cellspacing="0" role="grid" aria-describedby="download-table_info" style="width: 100%;">
+                    <table class="table table-bordered dataTable no-footer" id="download-table" width="100%"
+                        cellspacing="0" role="grid" aria-describedby="download-table_info" style="width: 100%;">
                         <thead>
                             <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="#: activate to sort column descending" style="width: 59.2px;" aria-sort="ascending">#</th>
-                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="Thời gian: activate to sort column ascending" style="width: 174.2px;">Thời gian</th>
-                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="Thời gian: activate to sort column ascending" style="width: 174.2px;">Hình thức</th>
-                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="Link gốc: activate to sort column ascending" style="width: 160.2px;">Số tiền</th>
-                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="Thời gian: activate to sort column ascending" style="width: 174.2px;">Thông tin thêm</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="download-table" rowspan="1"
+                                    colspan="1" aria-label="#: activate to sort column descending"
+                                    style="width: 59.2px;" aria-sort="ascending">#</th>
+                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1"
+                                    colspan="1" aria-label="Thời gian: activate to sort column ascending"
+                                    style="width: 174.2px;">Thời gian</th>
+                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1"
+                                    colspan="1" aria-label="Thời gian: activate to sort column ascending"
+                                    style="width: 174.2px;">Hình thức</th>
+                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1"
+                                    colspan="1" aria-label="Link gốc: activate to sort column ascending"
+                                    style="width: 160.2px;">Số tiền</th>
+                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1"
+                                    colspan="1" aria-label="Thời gian: activate to sort column ascending"
+                                    style="width: 174.2px;">Thông tin thêm</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- <tr class="odd">
-                                <td valign="top" colspan="4" class="dataTables_empty">Không có mục nào</td>
-                            </tr> -->
+                                    <td valign="top" colspan="4" class="dataTables_empty">Không có mục nào</td>
+                                </tr> -->
 
-                            @foreach($transactions as $transaction)
+                            @foreach ($transactions as $transaction)
                                 <tr>
-                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 59.2px;" aria-sort="ascending">{{$transaction->id}}</th>
-                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">{{$transaction->created_at}}</th>
-                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">{{$transaction->type}}</th>
-                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">{{$transaction->amount}}vnđ</th>
-                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">Không có</th>
+                                    <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                        colspan="1" style="width: 59.2px;" aria-sort="ascending">
+                                        {{ $transaction->id }}</th>
+                                    <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                        colspan="1" style="width: 174.2px;">{{ $transaction->created_at }}</th>
+                                    <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                        colspan="1" style="width: 174.2px;">{{ $transaction->type }}</th>
+                                    <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                        colspan="1" style="width: 174.2px;">{{ $transaction->amount }}vnđ</th>
+                                    <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                        colspan="1" style="width: 174.2px;">Không có</th>
                                 </tr>
                             @endforeach
 
                             <!-- <tr class="odd" role="row">
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 59.2px;" aria-sort="ascending">1</th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">07/09/2024</th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">Ví điện tử Momo</th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">400,400vnđ</th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">Không có</th>
-                            </tr>
-                            <tr class="odd" role="row">
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 59.2px;" aria-sort="ascending">1</th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">07/09/2024</th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">Ví điện tử Momo</th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">400,400vnđ</th>
-                                <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">Không có</th>
-                            </tr> -->
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 59.2px;" aria-sort="ascending">1</th>
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">07/09/2024</th>
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">Ví điện tử Momo</th>
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">400,400vnđ</th>
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">Không có</th>
+                                </tr>
+                                <tr class="odd" role="row">
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 59.2px;" aria-sort="ascending">1</th>
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">07/09/2024</th>
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">Ví điện tử Momo</th>
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">400,400vnđ</th>
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">Không có</th>
+                                </tr> -->
                         </tbody>
                     </table>
                     <div class="row">
                         <div class="col-sm-12 col-md-5">
-                            <div class="dataTables_info" id="download-table_info" role="status" aria-live="polite"></div>
+                            <div class="dataTables_info" id="download-table_info" role="status" aria-live="polite">
+                            </div>
                         </div>
                         <div class="col-sm-12 col-md-7">
                             <div class="dataTables_paginate paging_simple_numbers" id="download-table_paginate">
                                 <ul class="pagination">
                                     <li class="paginate_button page-item previous disabled" id="download-table_previous">
-                                        <a href="#" aria-controls="download-table" data-dt-idx="0" tabindex="0" class="page-link">Trước</a>
+                                        <a href="#" aria-controls="download-table" data-dt-idx="0" tabindex="0"
+                                            class="page-link">Trước</a>
                                     </li>
                                     <li class="paginate_button page-item next disabled" id="download-table_next">
-                                        <a href="#" aria-controls="download-table" data-dt-idx="1" tabindex="0" class="page-link">Kế tiếp</a>
+                                        <a href="#" aria-controls="download-table" data-dt-idx="1" tabindex="0"
+                                            class="page-link">Kế tiếp</a>
                                     </li>
                                 </ul>
                             </div>
