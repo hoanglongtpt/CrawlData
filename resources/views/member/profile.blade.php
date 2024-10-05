@@ -6,7 +6,7 @@
                 <div class="header">Thông tin tài khoản</div>
                 <div class="profile-layout">
                     <div class="information">
-                        <img src="{{asset('assets-theme/img/payment-methods/momo.png')}}" class="avatar">
+                        <img src="{{asset('assets-theme/img/avatar.png')}}" class="avatar">
                         <div class="info-group">
                             <h2 class="name">{{$user->name}}</h2>
                             <div class="balance"><span class="quantity">100</span> xu</div>
@@ -116,8 +116,8 @@
                             Hiện
                             <select class="custom-select custom-select-sm form-control form-control-sm">
                                 <option value="10">10</option>
-                                <option value="10">25</option>
-                                <option value="10">50</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
                             </select>
                             mục
                         </label>
@@ -130,7 +130,7 @@
                         <thead>
                             <tr role="row">
                                 <th class="sorting_asc" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="#: activate to sort column descending" style="width: 59.2px;" aria-sort="ascending">#</th>
-                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="Thời gian: activate to sort column ascending" style="width: 174.2px;">Ngày</th>
+                                <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="Thời gian: activate to sort column ascending" style="width: 174.2px;">Thời gian</th>
                                 <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="Thời gian: activate to sort column ascending" style="width: 174.2px;">Hình thức</th>
                                 <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="Link gốc: activate to sort column ascending" style="width: 160.2px;">Số tiền</th>
                                 <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1" colspan="1" aria-label="Thời gian: activate to sort column ascending" style="width: 174.2px;">Thông tin thêm</th>
@@ -140,7 +140,18 @@
                             <!-- <tr class="odd">
                                 <td valign="top" colspan="4" class="dataTables_empty">Không có mục nào</td>
                             </tr> -->
-                            <tr class="odd" role="row">
+
+                            @foreach($transactions as $transaction)
+                                <tr>
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 59.2px;" aria-sort="ascending">{{$transaction->id}}</th>
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">{{$transaction->created_at}}</th>
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">{{$transaction->type}}</th>
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">{{$transaction->amount}}vnđ</th>
+                                    <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">Không có</th>
+                                </tr>
+                            @endforeach
+
+                            <!-- <tr class="odd" role="row">
                                 <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 59.2px;" aria-sort="ascending">1</th>
                                 <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">07/09/2024</th>
                                 <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">Ví điện tử Momo</th>
@@ -153,7 +164,7 @@
                                 <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">Ví điện tử Momo</th>
                                 <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">400,400vnđ</th>
                                 <th class="table-item-custom"   aria-controls="download-table" rowspan="1" colspan="1"  style="width: 174.2px;">Không có</th>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                     <div class="row">
