@@ -8,7 +8,7 @@
                     <div class="information">
                         <img src="{{asset('assets-theme/img/payment-methods/momo.png')}}" class="avatar">
                         <div class="info-group">
-                            <h2 class="name">Nguyen Van Quy</h2>
+                            <h2 class="name">{{$user->name}}</h2>
                             <div class="balance"><span class="quantity">100</span> xu</div>
                             <div class="balance"><span class="quantity">23</span> ảnh tải về trong 30 ngày qua</div>
                         </div>
@@ -23,11 +23,11 @@
                                 <div class="profile-info-layout">
                                     <div class="profile-info-item">
                                         <label class="profile-label">Tên hiển thị</label>
-                                        <span>Nguyễn Văn Quý</span>
+                                        <span>{{$user->name}}</span>
                                     </div>
                                     <div class="profile-info-item">
                                         <label class="profile-label">Địa chỉ email</label>
-                                        <span>nguyenvanquy@gmail.com</span>
+                                        <span>{{$user->email}}</span>
                                     </div>
                                     <div class="profile-info-item">
                                         <label class="profile-label">Mật khẩu</label>
