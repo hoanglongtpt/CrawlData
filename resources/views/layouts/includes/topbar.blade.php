@@ -160,13 +160,14 @@
             <a href="/payment" class="charge-btn">Nạp Bit</a>
         </li>
         <div class="topbar-divider d-none d-sm-block"></div>
-
+        @if (Auth::check())
         <li class="nav-item-custom">
             <span class="balance">100</span>
             <img class="coin-icon" src="{{asset('assets-theme/img/coin.svg')}}" width="32px" height="32px" />
         </li>
-
         <div class="topbar-divider d-none d-sm-block"></div>
+        @endif
+        
 
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
@@ -178,8 +179,7 @@
                 <span class="mr-2 d-none d-lg-inline small name-text">{{ __('messages.wellcome') }}</span>
                 @endif
 
-                <img class="img-profile rounded-circle"
-                    src="{{asset('assets-theme/img/undraw_profile.svg')}}">
+                <img class="img-profile rounded-circle" src="{{asset('assets-theme/img/undraw_profile.svg')}}">
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
