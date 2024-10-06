@@ -109,6 +109,7 @@ input.form-control-checkbox::before {
     border-radius: 8px;
     padding: 6px 24px;
     font-weight: 600;
+    color: black;
 }
 .login-btn:hover {
     background: var(--bg-gradient-orange);
