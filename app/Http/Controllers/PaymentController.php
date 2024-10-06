@@ -60,7 +60,7 @@ class PaymentController extends Controller
             $data = [
                 "orderCode" => intval(substr(strval(microtime(true) * 10000), -6)),
                 "amount" => $amount,
-                "description" => $member->user_name,
+                "description" => $member->email,
                 "returnUrl" => route('checkout.success'),
                 "cancelUrl" => route('checkout.cancel'),
             ];
