@@ -69,6 +69,13 @@
             </li>
 
             <li class="side-nav-item">
+                <a href="{{route('pagedowload.index')}}" class="side-nav-link">
+                    <i class="uil-calender"></i>
+                    <span> Page Dowload </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
                 <a href="{{route('transaction.index')}}" class="side-nav-link">
                     <i class="uil-calender"></i>
                     <span> Giao dịch </span>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\MemberController;
+use App\Http\Controllers\Admin\PagedowloadController;
 use App\Http\Controllers\Admin\TransactionController;
 
 /*
@@ -30,6 +31,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::resource('/user', UserController::class)->parameters(['user' => 'id']);
     Route::resource('/member', MemberController::class)->parameters(['member' => 'id']);
     Route::resource('/transaction', TransactionController::class)->parameters(['transaction' => 'id']);
+    Route::resource('/pagedowload', PagedowloadController::class)->parameters(['pagedowload' => 'id']);
 });
 
 
