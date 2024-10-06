@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\MemberController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
@@ -43,6 +44,7 @@ Route::middleware('auth.member')->group(function () {
     Route::post('/tiktok', [HomeController::class, 'GetTiktok'])->name('download.tiktok');
     Route::get('/payment', [PaymentController::class, 'payment'])->name('payment');
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::post('/profile/change-password', [MemberController::class, 'changePassword'])->name('changePassword');
 });
 
 Route::get('/login/google', [GoogleAuthController::class, 'redirect'])->name('member.google-auth');

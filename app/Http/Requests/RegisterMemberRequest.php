@@ -24,7 +24,7 @@ class RegisterMemberRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'password' => 'required|min:6|max:255',
+            'password' => 'required|string|digits:6',
         ];
     }
 
@@ -34,7 +34,7 @@ class RegisterMemberRequest extends FormRequest
             'required' => 'Trường yêu cầu',
             'email' => 'Phải là định dạng email',
             'max' => 'Tối đa 255 kí tự',
-            'min' => 'Tối thiểu 6 kí tự',
+            'password.digits' => 'Tối thiểu 6 kí tự',
             'accepted' => 'Vui lòng chấp nhận điều khoản trước khi sử dụng',
         ];
     }
