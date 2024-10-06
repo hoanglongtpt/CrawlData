@@ -23,5 +23,5 @@ class Constants
     /*Transaction status*/
     const VERIFIED_TRANSACTION_STATUS = 'Đã xác minh';
     const UNVERIFIED_TRANSACTION_STATUS = 'Chưa xác minh';
-    const INVALID_TRANSACTION_STATUS = 'Chưa xác minh';
+    const INVALID_TRANSACTION_STATUS = 'Không hợp lệ';
 }
