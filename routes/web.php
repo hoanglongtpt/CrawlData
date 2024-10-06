@@ -43,6 +43,13 @@ Route::middleware('auth.member')->group(function () {
     Route::post('/tiktok', [HomeController::class, 'GetTiktok'])->name('download.tiktok');
     Route::get('/payment', [PaymentController::class, 'payment'])->name('payment');
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::get('/checkout', [PaymentController::class, 'checkout'])->name('checkout');
+    Route::get('/success', [PaymentController::class, 'success'])->name('checkout.success');
+    Route::get('/cancel', [PaymentController::class, 'cancel'])->name('checkout.cancel');
+    Route::post('/create-payment-link', [PaymentController::class, 'createPaymentLink'])->name('createPaymentLink');
+    Route::prefix('/payment')->group(function () { 
+        Route::post('/payos', [PaymentController::class, 'handlePayOSWebhook']);
+    });
 });
 
 Route::get('/login/google', [GoogleAuthController::class, 'redirect'])->name('member.google-auth');

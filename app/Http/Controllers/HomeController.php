@@ -9,6 +9,12 @@ use App\Models\PageDowload;
 use Illuminate\Support\Facades\Log;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Constants\Constants;
+use App\Models\Member;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Models\Transaction;
+
+
 
 class HomeController extends Controller
 {
@@ -31,10 +37,16 @@ class HomeController extends Controller
     }
 
     public function GetFreePik(Request $request) {
+        DB::beginTransaction();
         try {
             $categories = PageDowload::all();
             $page_item = PageDowload::where('type', 'freepik')->first();
-    
+
+            $member = Member::findOrFail(Auth::guard('member')->id());
+            if ( $member && ($member->account_balance < $page_item->amount)) {
+                return response()->json(['error' => 'Số dư không đủ, vui lòng nạp thêm tiền!'], 400);
+            }
+
             if ($request->type) {
                 $page_item = PageDowload::where('type', $request->type)->first();
             }
@@ -50,10 +62,22 @@ class HomeController extends Controller
             }
     
             if ($url == null) {
-                Alert::error(Constants::ALERT_FAILED, __('messages.url_empty'))->autoClose(2000);
                 return response()->json(['error' => __('messages.url_empty')], 400);
             }
-    
+            
+            $member->account_balance -= $page_item->amount;
+            $member->save();
+
+            // lưu vào lịch sử transaction 
+            $transaction = new Transaction();
+            $transaction->member_id = $member->id;
+            $transaction->type	 = 'dowload_'.$page_item->type;
+            $transaction->amount = $page_item->amount*1000;
+            $transaction->page_id = $page_item->id;
+            $transaction->status = 1;
+            $transaction->quantity = 1;
+            $transaction->save();
+            DB::commit();
             // Tạo mảng với tất cả dữ liệu cần truyền
             $data = [
                 'categories' => $categories,
@@ -67,9 +91,11 @@ class HomeController extends Controller
                 'page_item' => $page_item,
                 'id' => $id,
             ]);
+
+
         } catch (\Exception $e) {
+            DB::rollBack();
             Log::error('Error: ' . $e->getMessage());
-            Alert::error(Constants::ALERT_FAILED, __('messages.error_server'))->autoClose(2000);
             return response()->json(['error' => __('messages.error_server')], 500);
         }
     }
