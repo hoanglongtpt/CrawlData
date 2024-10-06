@@ -182,22 +182,32 @@
                 <img class="img-profile rounded-circle" src="{{asset('assets-theme/img/undraw_profile.svg')}}">
             </a>
             <!-- Dropdown - User Information -->
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="/profile">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Hồ sơ cá nhân
-                </a>
-                {{-- <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Cài đặt
-                </a> --}}
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{route('member.logout')}}">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Đăng xuất
-                </a>
-            </div>
+            @if (Auth::guard('member')->check())
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="/profile">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Hồ sơ cá nhân
+                    </a>
+                    {{-- <a class="dropdown-item" href="#">
+                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Cài đặt
+                    </a> --}}
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{route('member.logout')}}">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Đăng xuất
+                    </a>
+                </div>
+            @else
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="{{route('member.login')}}">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Đăng Nhập
+                    </a>
+                </div>
+            @endif
         </li>
 
     </ul>
