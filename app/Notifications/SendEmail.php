@@ -38,7 +38,7 @@ class SendEmail extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->from('password_change@example.com', 'Lawer Le Vo')
+            ->from('editorvn@gmail.com', 'editorvn.com')
             ->line('Chào bạn '.$this->user->name.',')
             ->line('Chúng tôi nhận được yêu cầu thay đổi mật khẩu')
             ->line('Mật khẩu mới của bạn là : '.$this->newPassword)

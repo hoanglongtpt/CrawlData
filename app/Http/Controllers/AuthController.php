@@ -27,6 +27,10 @@ class AuthController extends Controller
 
     public function login()
     {
+        $member = Auth::guard('member')->user();
+        if ($member) {
+            return redirect()->route('home');
+        }
         return view('member.auth.login');
     }
 
@@ -51,7 +55,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         if (Auth::guard('member')->check()) {
-            return redirect()->route($this->route_prefix . 'home');
+            return redirect()->route('home');
         }
         $data = [
             'route_prefix' => $this->route_prefix
@@ -82,7 +86,7 @@ class AuthController extends Controller
     public function forgot_password()
     {
         if (Auth::guard('member')->check()) {
-            return redirect()->route($this->route_prefix . 'home');
+            return redirect()->route('home');
         }
         $data = [
             'route_prefix' => $this->route_prefix
