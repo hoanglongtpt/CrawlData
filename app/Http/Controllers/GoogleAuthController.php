@@ -47,9 +47,9 @@ class GoogleAuthController extends Controller
                 );
             }
 
-            Auth::login($member);
+            Auth::guard('member')->login($member);
             Alert::success(Constants::ALERT_SUCCESS, __('messages.login_success'))->autoClose(2000);
-
+            $user = Auth::user();
             return redirect()->route('home');
         } catch (\Exception $e) {
             Log::error('Error-loginCallback:', ['message' => $e->getMessage(), 'stack' => $e->getTraceAsString()]);
