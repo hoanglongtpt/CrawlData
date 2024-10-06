@@ -1,7 +1,7 @@
 <div class="leftside-menu">
 
     <!-- Brand Logo Light -->
-    <a href="index.html" class="logo logo-light">
+    <a href="{{route('admin.home')}}" class="logo logo-light">
         <span class="logo-lg">
             <img src="{{ asset('admin-assets/images/logo.png')}}" alt="logo">
         </span>
@@ -11,7 +11,7 @@
     </a>
 
     <!-- Brand Logo Dark -->
-    <a href="index.html" class="logo logo-dark">
+    <a href="{{route('admin.home')}}" class="logo logo-dark">
         <span class="logo-lg">
             <img src="{{ asset('admin-assets/images/logo-dark.png" alt="dark logo">
                 </span>
@@ -45,12 +45,12 @@
 
             {{-- <li class="side-nav-title">Quản Trị</li> --}}
 
-            <li class="side-nav-item">
+            {{-- <li class="side-nav-item">
                 <a href="{{route('admin.home')}}" class="side-nav-link">
                     <i class="uil-home-alt"></i>
                     <span> Tổng Quan </span>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="side-nav-title">Quản Trị</li>
 

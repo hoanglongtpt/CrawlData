@@ -10,7 +10,7 @@
                                 <h4 class="header-title">Thêm Mới Người Dùng</h4>
                                 <div class="tab-content mt-5">
                                     <div class="tab-pane show active" id="custom-styles-preview" role="tabpanel">
-                                        <form action="{{route('user.store')}}" class="needs-validation" novalidate="" method="POST">
+                                        <form action="{{route('member.store')}}" class="needs-validation" novalidate="" method="POST">
                                             @csrf
                                             <div class="mb-3">
                                                 <label class="form-label" for="validationCustom01">Email</label>

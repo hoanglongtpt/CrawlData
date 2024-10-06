@@ -57,7 +57,7 @@
                                                                                 <i class="mdi mdi-dots-vertical"></i>
                                                                             </a>
                                                                             <div class="dropdown-menu dropdown-menu-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 31px);" data-popper-placement="bottom-end">
-                                                                                <a href="{{route('member.show',[$item->id])}}" class="dropdown-item">xem</a>
+                                                                                {{-- <a href="{{route('member.show',[$item->id])}}" class="dropdown-item">xem</a> --}}
                                                                                 <a href="{{route('member.edit',[$item->id])}}" class="dropdown-item">Sửa</a>
                                                                                 <a href="javascript:void(0);" class="dropdown-item" onclick="{{'confirmDelete('.$item->id.')'}}">Xóa</a>
                                                                                 <form id="{{'deleteForm-'.$item->id}}" action="{{ route('member.destroy',['id' => $item->id ]) }}" method="POST" style="display: none;">

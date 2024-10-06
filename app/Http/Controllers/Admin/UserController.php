@@ -24,14 +24,14 @@ class UserController extends Controller
             $query->where('name',  'LIKE', "%" . $request->name . "%");
         }
         $items = $query->paginate(10);
-        return view('admin.adminUser.index', compact('items'));
+        return view('admin.user.index', compact('items'));
     }
 
     public function edit(Request $request)
     {
         try {
             $user = User::findOrFail($request->id);
-            return view('admin.adminUser.edit', compact('user'));
+            return view('admin.user.edit', compact('user'));
         } catch (\Exception $e) {
             // Ghi log lỗi
             Log::error('Lỗi khi tìm kiếm người dùng: ' . $e->getMessage());
@@ -40,7 +40,7 @@ class UserController extends Controller
         }
     }
 
-    public function update(EditUserAdminRequet $request)
+    public function update(Request $request)
     {
         try {
             $user = User::findOrFail($request->id);
@@ -82,7 +82,7 @@ class UserController extends Controller
     {
         try {
             $user = User::findOrFail($request->id);
-            return view('admin.adminUser.show', compact('user'));
+            return view('admin.user.show', compact('user'));
         } catch (\Exception $e) {
             // Ghi log lỗi
             Log::error('Lỗi khi tìm kiếm người dùng: ' . $e->getMessage());
@@ -93,7 +93,7 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('admin.adminUser.create');
+        return view('admin.user.create');
     }
 
     public function destroy($id)

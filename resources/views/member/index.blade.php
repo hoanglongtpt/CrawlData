@@ -24,13 +24,13 @@
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" id ="resource" type="radio" name="option" value="resource" checked="">
                                     <label class="form-check-label" for = "resource">
-                                        Image/Template - 1xu
+                                        Image/Template - 1bit
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" id ="icon" type="radio" name="option" value="icon">
                                     <label class="form-check-label" for = "icon">
-                                        Icon - 1xu
+                                        Icon - 1bit
                                     </label>
                                 </div>
                             </div>

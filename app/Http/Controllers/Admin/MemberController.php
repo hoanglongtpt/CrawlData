@@ -26,19 +26,19 @@ class MemberController extends Controller
             $query->where('name', 'LIKE', "%" . $request->name . "%");
         }
         $items = $query->paginate(10);
-        return view('admin.adminUser.index', compact('items'));
+        return view('admin.member.index', compact('items'));
     }
 
     public function edit(Request $request)
     {
         try {
             $member = Member::findOrFail($request->id);
-            return view('admin.adminUser.edit', compact('member'));
+            return view('admin.member.edit', compact('member'));
         } catch (\Exception $e) {
             // Ghi log lỗi
             Log::error('Lỗi khi tìm kiếm người dùng: ' . $e->getMessage());
             // Có thể thêm thông báo lỗi cho người dùng nếu cần
-            return redirect()->route('admin.adminUser.index')->with('error', 'Người dùng không tồn tại.');
+            return redirect()->route('admin.member.index')->with('error', 'Người dùng không tồn tại.');
         }
     }
 
@@ -94,7 +94,7 @@ class MemberController extends Controller
 
     public function create()
     {
-        return view('admin.adminUser.create');
+        return view('admin.member.create');
     }
 
     public function destroy($id)
