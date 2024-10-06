@@ -201,7 +201,7 @@
                                 style="width: 160.2px;">Số tiền</th>
                             <th class="sorting" tabindex="0" aria-controls="download-table" rowspan="1"
                                 colspan="1" aria-label="Thời gian: activate to sort column ascending"
-                                style="width: 174.2px;">Thông tin thêm</th>
+                                style="width: 174.2px;">Trạng thái</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -209,20 +209,37 @@
                                     <td valign="top" colspan="4" class="dataTables_empty">Không có mục nào</td>
                                 </tr> -->
 
-                        @foreach ($transactions as $transaction)
+                        @foreach ($transactions as $index => $transaction)
                         <tr>
-                            <th class="table-item-custom" aria-controls="download-table" rowspan="1"
+                            <td class="table-item-custom" aria-controls="download-table" rowspan="1"
                                 colspan="1" style="width: 59.2px;" aria-sort="ascending">
-                                {{ $transaction->id }}
-                            </th>
-                            <th class="table-item-custom" aria-controls="download-table" rowspan="1"
-                                colspan="1" style="width: 174.2px;">{{ $transaction->created_at }}</th>
-                            <th class="table-item-custom" aria-controls="download-table" rowspan="1"
-                                colspan="1" style="width: 174.2px;">{{ $transaction->type }}</th>
-                            <th class="table-item-custom" aria-controls="download-table" rowspan="1"
-                                colspan="1" style="width: 174.2px;">{{ $transaction->amount }}vnđ</th>
-                            <th class="table-item-custom" aria-controls="download-table" rowspan="1"
-                                colspan="1" style="width: 174.2px;">Không có</th>
+                                {{ $index + 1 }}
+                            </td>
+                            <td class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                colspan="1" style="width: 174.2px;">{{ $transaction->created_at }}</td>
+                            <td class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                colspan="1" style="width: 174.2px;">{{ $transaction->type }}</td>
+                            <td class="table-item-custom" aria-controls="download-table" rowspan="1"
+                                colspan="1" style="width: 174.2px;">{{ $transaction->amount }}vnđ</td>
+                            @if ($transaction->status == 1)
+                            <td class="table-item-custom sorting_1" aria-controls="download-table" rowspan="1"
+                                colspan="1" style="width: 174.2px;">
+                                <i class="mdi mdi-circle text-success"></i>
+                                {{ App\Constants\Constants::VERIFIED_TRANSACTION_STATUS }}
+                            </td>
+                            @elseif ($transaction->status == 2)
+                            <td class="table-item-custom sorting_1" aria-controls="download-table" rowspan="1"
+                                colspan="1" style="width: 174.2px;">
+                                <i class="mdi mdi-circle text-warning"></i>
+                                {{ App\Constants\Constants::UNVERIFIED_TRANSACTION_STATUS }}
+                            </td>
+                            @else
+                            <td class="table-item-custom sorting_1" aria-controls="download-table" rowspan="1"
+                                colspan="1" style="width: 174.2px;">
+                                <i class="mdi mdi-circle text-danger"></i>
+                                {{ App\Constants\Constants::INVALID_TRANSACTION_STATUS }}
+                            </td>
+                            @endif
                         </tr>
                         @endforeach
 
