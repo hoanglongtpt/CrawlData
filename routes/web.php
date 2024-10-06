@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\MemberController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
@@ -50,6 +51,7 @@ Route::middleware('auth.member')->group(function () {
     Route::prefix('/payment')->group(function () { 
         Route::post('/payos', [PaymentController::class, 'handlePayOSWebhook']);
     });
+    Route::post('/profile/change-password', [MemberController::class, 'changePassword'])->name('changePassword');
 });
 
 Route::get('/login/google', [GoogleAuthController::class, 'redirect'])->name('member.google-auth');

@@ -22,8 +22,9 @@ class EditUserAdminRequet extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email',   
-            'name' => 'required', 
+            'email' => 'required|email',
+            'name' => 'required',
+            'account_balance' => 'required|numeric|min:0.0',
         ];
     }
 
@@ -37,6 +38,8 @@ class EditUserAdminRequet extends FormRequest
         return [
             'email.required' => 'Vui lòng nhập email.',
             'name.required' => 'Vui lòng nhập tên.',
+            'account_balance.numeric' => __('messages.account_balance_numeric'),
+            'account_balance.min' => __('messages.account_balance_min')
         ];
     }
 }

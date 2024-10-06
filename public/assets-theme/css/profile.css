@@ -94,10 +94,12 @@
     color: black;
     font-weight: 500;
     border: 1px solid transparent;
+    text-decoration: none;
 }
 
 .tab:hover {
     opacity: 0.75;
+    text-decoration: none
 }
 
 .tab.active {
