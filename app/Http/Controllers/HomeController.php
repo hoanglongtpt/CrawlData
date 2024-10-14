@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\ApiService;
+use App\Services\SeleniumService;
 use App\Extensions\Extension;
 use App\Models\PageDowload;
 use Illuminate\Support\Facades\Log;
@@ -75,11 +76,17 @@ class HomeController extends Controller
 
             $url = null;
             $id = Extension::GetIDFromLink($request->link);
-            $pythonScriptPath = public_path('python/motionarray.py');
-            $command = "python $pythonScriptPath " . escapeshellarg($id);
-            $output = shell_exec($command);
+            $url = SeleniumService::DownLoadResourceMotionarray($id);
+            if ($url == null) {
+                Alert::error(Constants::ALERT_FAILED, ('messages.url_empty'))->autoClose(2000);
+                return redirect()->route('home', ['type' => $request->type]);
+            }
 
-            dd($output);
+            return redirect()->route('home', ['type' => $request->type])
+                ->with('categories', $categories)
+                ->with('page_item', $page_item)
+                ->with('url', $url)
+                ->with('id', $id);
         }
         catch  (\Exception $e) {
             Log::error('Error: ' . $e->getMessage());

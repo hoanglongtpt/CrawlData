@@ -5,53 +5,27 @@ use Illuminate\Support\Facades\Http;
 
 class SeleniumService
 {
-    const keyClient = "FPSX62e1619372cc4ad7af326ed6dffdd0a2";
 
     public static function Envato()
     {
 
     }
-    public static function DownLoadIconFreepik($id)
-    {
-        //15599882
-        try
-        {
-            $response = Http::withHeaders([
-                'x-freepik-api-key' => self::keyClient,
-            ])->get('https://api.freepik.com/v1/icons/'.$id.'/download');
 
-            dd($response['data']['url']);
-            if($response['data'] == null)
-            {
-                return $response['message'] ?? "Down load Icon fail";
-            }
-            else
-                return $response['data']['url'];
-        }
-        catch (\Exception $e){
-            return "Down load Icon fail. ". $e;
-        }
-    }
-    public static function DownLoadResourceFreepik($id, $resource = "")
+    public static function DownLoadResourceMotionarray($id)
     {
         try
         {
-            if($resource != "")
-                $resource = "/".$resource;
-            $response = Http::withHeaders([
-                'x-freepik-api-key' =>  self::keyClient,
-            ])->get('https://api.freepik.com/v1/resources/'.$id.'/download'.$resource);
+            $response = Http::get('http://14.225.255.75:8000/motionarray/'.$id);
 
-            dd($response['data']['url']);
-            if($response['data'] == null)
+            if ($response['url'] == null)
             {
-                return $response['message'] ?? "Down load Resource fail";
+                return $response['message'] ?? "Download Resource fail";
             }
             else
-                return $response['data']['url'];
+                return $response['url'];
         }
         catch (\Exception $e){
-            return "Down load Resource fail. ". $e;
+            return "Download Resource fail. ". $e;
         }
     }
 }
