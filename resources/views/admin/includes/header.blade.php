@@ -60,30 +60,13 @@
                         <img src="{{ asset('admin-assets/images/users/avatar-1.jpg')}}" alt="user-image" width="32" class="rounded-circle">
                     </span>
                     <span class="d-lg-flex flex-column gap-1 d-none">
-                        <h5 class="my-0">Dominic Keller</h5>
-                        <h6 class="my-0 fw-normal">Founder</h6>
+                        <h5 class="my-0">{{Auth::user()->name}}</h5>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
                     <div class=" dropdown-header noti-title">
                         <h6 class="text-overflow m-0">Welcome !</h6>
                     </div>
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <i class="mdi mdi-account-circle me-1"></i>
-                        <span>My Account</span>
-                    </a>
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <i class="mdi mdi-account-edit me-1"></i>
-                        <span>Settings</span>
-                    </a>
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <i class="mdi mdi-lifebuoy me-1"></i>
-                        <span>Support</span>
-                    </a>
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <i class="mdi mdi-lock-outline me-1"></i>
-                        <span>Lock Screen</span>
-                    </a>
                     <a href="{{route('admin.logout')}}" class="dropdown-item">
                         <i class="mdi mdi-logout me-1"></i>
                         <span>Logout</span>

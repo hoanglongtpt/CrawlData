@@ -9,4 +9,9 @@ class PageDowload extends Model
 {
     use HasFactory;
     protected $table = 'pages_downloads';
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

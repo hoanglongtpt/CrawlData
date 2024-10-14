@@ -2,11 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
-use App\Http\Controllers\Admin\HomeController;
-use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\MemberController;
-
+use App\Http\Controllers\Admin\PagedowloadController;
+use App\Http\Controllers\Admin\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,17 +21,17 @@ use App\Http\Controllers\Admin\MemberController;
 
 
 
-Route::get('/admin/login', [AuthController::class,'login'])->name('admin.login');
-Route::post('/admin/login', [AuthController::class,'post_login'])->name('admin.postlogin');
+Route::get('/admin/login', [AuthController::class, 'login'])->name('admin.login');
+Route::post('/admin/login', [AuthController::class, 'post_login'])->name('admin.postlogin');
 
 
 Route::group(['middleware' => ['admin']], function () {
-    Route::get('/admin', [HomeController::class,'index'])->name('admin.home');
-    Route::get('/admin/logout', [AuthController::class,'logout'])->name('admin.logout');
-    Route::get('/admin/index', [AdminUserController::class,'index'])->name('admin.index');
+    Route::get('/admin', [UserController::class, 'index'])->name('admin.home');
+    Route::get('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
     Route::resource('/user', UserController::class)->parameters(['user' => 'id']);
     Route::resource('/member', MemberController::class)->parameters(['member' => 'id']);
-
+    Route::resource('/transaction', TransactionController::class)->parameters(['transaction' => 'id']);
+    Route::resource('/pagedowload', PagedowloadController::class)->parameters(['pagedowload' => 'id']);
 });
 
 

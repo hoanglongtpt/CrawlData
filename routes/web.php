@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\MemberController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GoogleAuthController;
 
@@ -30,7 +32,6 @@ Route::get('/forgot-password', [AuthController::class, 'forgot_password'])->name
 Route::post('/reset-password', [AuthController::class, 'reset_password'])->name('member.reset_password');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/payment', [PaymentController::class, 'payment'])->name('payment');
 
 Route::middleware('auth.member')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('member.logout');
@@ -41,6 +42,16 @@ Route::middleware('auth.member')->group(function () {
     Route::post('/artlist', [HomeController::class, 'GetArtlist'])->name('download.artlist');
     Route::post('/pikbest', [HomeController::class, 'GetPikbest'])->name('download.pikbest');
     Route::post('/tiktok', [HomeController::class, 'GetTiktok'])->name('download.tiktok');
+    Route::get('/payment', [PaymentController::class, 'payment'])->name('payment');
+    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::get('/checkout', [PaymentController::class, 'checkout'])->name('checkout');
+    Route::get('/success', [PaymentController::class, 'success'])->name('checkout.success');
+    Route::get('/cancel', [PaymentController::class, 'cancel'])->name('checkout.cancel');
+    Route::post('/create-payment-link', [PaymentController::class, 'createPaymentLink'])->name('createPaymentLink');
+    Route::prefix('/payment')->group(function () { 
+        Route::post('/payos', [PaymentController::class, 'handlePayOSWebhook']);
+    });
+    Route::post('/profile/change-password', [MemberController::class, 'changePassword'])->name('changePassword');
 });
 
 Route::get('/login/google', [GoogleAuthController::class, 'redirect'])->name('member.google-auth');
