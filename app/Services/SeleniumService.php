@@ -17,7 +17,7 @@ class SeleniumService
         {
             $response = Http::get('http://14.225.255.75:8000/motionarray/'.$id);
 
-            if ($response['url'] == null)
+            if ($response && $response['url'] == null)
             {
                 return $response['message'] ?? "Download Resource fail";
             }

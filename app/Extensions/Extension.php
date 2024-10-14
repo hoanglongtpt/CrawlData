@@ -2,6 +2,8 @@
 
 namespace App\Extensions;
 
+use Illuminate\Support\Facades\Log;
+
 class Extension
 {
 
@@ -9,6 +11,7 @@ class Extension
     {
         try
         {
+
             preg_match_all('/\d+/', $link, $ids);
             if ($ids != null)
                 return $ids[0][0];
