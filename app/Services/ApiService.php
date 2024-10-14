@@ -15,8 +15,8 @@ class ApiService
             $response = Http::withHeaders([
                 'x-freepik-api-key' => self::keyClientFreePik,
             ])->get('https://api.freepik.com/v1/icons/'.$id.'/download');
-
-            if ($response['data'] == null)
+            
+            if ($response && $response['data'] == null)
                 return null;
             else
                 return $response['data']['url'];
