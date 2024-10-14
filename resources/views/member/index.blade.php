@@ -172,8 +172,8 @@
                             $('#flashmessage').hide(); // Ẩn thông báo lỗi nếu có
                         } else {
                             $('#flashmessage .error-text').text(
-                            'Không có URL nào được trả về.');
-                            $('#flashmessage').show(); // Hiển thị thông báo lỗi
+                            'Vui lòng đăng nhập để tải!');
+                            $('#flashmessage').show(); // Hiển thị thông báo lỗi\
                         }
                     },
                     error: function(xhr) {
@@ -186,6 +186,7 @@
                                 'Đã xảy ra lỗi khi gửi yêu cầu.'); // Lỗi chung
                         }
                         $('#flashmessage').show(); // Hiển thị thông báo lỗi
+                        $('#wp-result').hide();
                     },
                     complete: function() {
                         // Ẩn spinner khi yêu cầu Ajax hoàn thành (thành công hoặc thất bại)
