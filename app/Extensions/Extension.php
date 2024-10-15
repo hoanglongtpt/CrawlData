@@ -21,5 +21,19 @@ class Extension
         }
         return "";
     }
+    public static function GetIDFromEvanto($link)
+    {
+        try
+        {
+
+            $splitedUrl = explode('-', $link);
+            return end($splitedUrl);
+
+        }
+        catch(\Exception $e)
+        {
+            return "";
+        }
+    }
 }
 
