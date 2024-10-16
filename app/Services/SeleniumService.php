@@ -15,7 +15,7 @@ class SeleniumService
     {
         try
         {
-            $response = Http::get('http://14.225.255.75:8000/motionarray/'.$id);
+            $response = Http::get('http://14.225.255.75:8001/motionarray/'.$id);
 
             if ($response && $response['url'] == null)
             {
