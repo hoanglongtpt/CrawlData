@@ -14,6 +14,7 @@ use App\Models\Member;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Transaction;
+use Illuminate\Support\Str;
 
 
 
@@ -42,6 +43,9 @@ class HomeController extends Controller
         try {
             if (!(Auth::guard('member')->check())) {
                 return response()->json(['error' => 'Vui lòng đăng nhập để tải!'], 400);
+            }
+            if (!(Str::contains($request->link, 'freepik'))) {
+                return response()->json(['error' => 'Link không hợp lệ'], 400);
             }
             $categories = PageDowload::all();
             $page_item = PageDowload::where('type', 'freepik')->first();
@@ -110,6 +114,9 @@ class HomeController extends Controller
             if (!(Auth::guard('member')->check())) {
                 return response()->json(['error' => 'Vui lòng đăng nhập để tải!'], 400);
             }
+            if (!(Str::contains($request->link, 'motionarray'))) {
+                return response()->json(['error' => 'Link không hợp lệ'], 400);
+            } 
             $categories = PageDowload::all();
             $page_item = PageDowload::where('type', 'motion-array')->first();
             $member = Member::findOrFail(Auth::guard('member')->id());
