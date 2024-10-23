@@ -60,15 +60,23 @@ class HomeController extends Controller
             }
             
             $url = null;
+
             $id = Extension::GetIDFromLink($request->link);
+            $postType = Extension::GetTypeDowload($request->link);
             
-            if ($request->option == 'icon' && !empty($id)) {
-                $url = ApiService::DownLoadIconFreepik($id);
-            } elseif ($request->option == 'resource' && !empty($id)) {
-                $resource_format = $request->resource_format;
-                $url = ApiService::DownLoadResourceFreepik($id, $resource_format);
+            if ($postType == 'premium') {
+                $url = ApiService::DownLoadResourcePreniumFreepik($id);
+            }elseif ($postType == 'video') {
+                $url = ApiService::DownLoadVideoFreepik($id);
+            }else{
+                if ($request->option == 'icon' && !empty($id)) {
+                    $url = ApiService::DownLoadIconFreepik($id);
+                } elseif ($request->option == 'resource' && !empty($id)) {
+                    $resource_format = $request->resource_format;
+                    $url = ApiService::DownLoadResourceFreepik($id, $resource_format);
+                }
             }
-            
+         
             if ($url == null) {
                 return response()->json(['error' => __('messages.url_empty')], 400);
             }
@@ -169,5 +177,6 @@ class HomeController extends Controller
         }
 
     }
+
 
 }

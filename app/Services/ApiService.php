@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 class ApiService
 {
     const keyClientFreePik = "FPSX62e1619372cc4ad7af326ed6dffdd0a2";
+
     public static function DownLoadIconFreepik($id)
     {
         try
@@ -48,24 +49,40 @@ class ApiService
         }
     }
 
-    public static function DownLoadResourceEnvato($id)
+    public static function DownLoadResourcePreniumFreepik($id)
     {
         try
         {
-            $response = Http::withHeaders([
-                'x-freepik-api-key' =>  self::keyClientFreePik,
-            ])->get('https://api.freepik.com/v1/resources/'.$id.'/download');
+            $response = Http::get('http://14.225.255.75:8000/freepik/'.$id.'?type=');
 
-            dd($response['data']['url']);
-            if($response['data'] == null)
+            if ($response && $response['result'] == null)
             {
-                return $response['message'] ?? "Down load Resource fail";
+                return $response['code'] ?? "Download Resource fail";
             }
             else
-                return $response['data']['url'];
+
+                return $response['result'];
         }
         catch (\Exception $e){
-            return "Down load Resource fail. ". $e;
+            return "Download Resource fail. ". $e;
+        }
+    }
+
+    public static function DownLoadVideoFreepik($id)
+    {
+        try
+        {
+            $response = Http::get('http://14.225.255.75:8000/freepik/'.$id.'?type=video');
+
+            if ($response && $response['result'] == null)
+            {
+                return $response['code'] ?? "Download Resource fail";
+            }
+            else
+                return $response['result'];
+        }
+        catch (\Exception $e){
+            return "Download Resource fail. ". $e;
         }
     }
 }
