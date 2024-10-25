@@ -49,12 +49,11 @@ class ApiService
         }
     }
 
-    public static function DownLoadResourcePreniumFreepik($id)
+    public static function DownLoadResourcePreniumFreepik($id,$type = '')
     {
         try
         {
-            $response = Http::get('http://14.225.255.75:8000/freepik/'.$id.'?type=');
-
+            $response = Http::get('http://14.225.255.75:8000/freepik/'.$id.'?type='.$type);
             if ($response && $response['result'] == null)
             {
                 return $response['code'] ?? "Download Resource fail";
