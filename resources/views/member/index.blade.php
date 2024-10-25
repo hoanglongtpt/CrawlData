@@ -30,7 +30,7 @@
                                     <input class="form-check-input" id ="resource" type="radio" name="option"
                                         value="resource" checked="">
                                     <label class="form-check-label" for = "resource">
-                                        Image/Template - 1bit
+                                        Image/Template/Video - 1bit
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
