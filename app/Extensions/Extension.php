@@ -39,10 +39,10 @@ class Extension
     }
 
     public static function GetTypeDowload ($link) {
-        if (self::hasPremiumKeyword($link)) {
-            return 'premium';
-        }elseif (self::hasVideoKeyword($link)) {
+        if (self::hasVideoKeyword($link)) {
             return 'video';
+        }elseif (self::hasPremiumKeyword($link)) {
+            return 'premium';
         }else{
             return 'normal';
         } 
@@ -63,10 +63,11 @@ class Extension
         if (strpos($url, $prefix) === 0) {
             $remainingPart = substr($url, strlen($prefix));
             
-            return strpos($remainingPart, 'video') !== false;
+            return strpos($remainingPart, 'video') !== false || strpos($remainingPart, 'premium-video') !== false;
         }
         return false; 
     }
+    
     
 }
 
