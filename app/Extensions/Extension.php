@@ -41,6 +41,8 @@ class Extension
     public static function GetTypeDowload ($link) {
         if (self::hasVideoKeyword($link)) {
             return 'video';
+        }elseif (self::hasIconKeyword($link)) {
+            return 'icon';
         }elseif (self::hasPremiumKeyword($link)) {
             return 'premium';
         }else{
@@ -64,6 +66,16 @@ class Extension
             $remainingPart = substr($url, strlen($prefix));
             
             return strpos($remainingPart, 'video') !== false || strpos($remainingPart, 'premium-video') !== false;
+        }
+        return false; 
+    }
+
+    private static function hasIconKeyword($url) {
+        $prefix = 'https://www.freepik.com/';
+        if (strpos($url, $prefix) === 0) {
+            $remainingPart = substr($url, strlen($prefix));
+            
+            return strpos($remainingPart, 'icon') !== false;
         }
         return false; 
     }

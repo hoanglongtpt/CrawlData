@@ -25,7 +25,7 @@
                                     getlink:</label>
                                 <textarea class="form-control" name="link" id="link" rows="5"></textarea>
                             </div>
-                            <div style="text-align: center;">
+                            {{-- <div style="text-align: center;">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" id ="resource" type="radio" name="option"
                                         value="resource" checked="">
@@ -40,7 +40,7 @@
                                         Icon - 1bit
                                     </label>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row mt-3 mb-3">
                                 <div class="col-12 d-flex justify-content-center">
                                     <div class="spinner-border text-warning" role="status">
