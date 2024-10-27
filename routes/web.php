@@ -37,7 +37,7 @@ Route::middleware('auth.member')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('member.logout');
     Route::post('/freepik', [HomeController::class, 'GetFreePik'])->name('download.freepik');
     Route::post('/motion-array', [HomeController::class, 'GetMotionArray'])->name('download.motion-array');
-    Route::post('/envato', [HomeController::class, 'GetEnvato'])->name('download.envato');
+    Route::post('/envato', [HomeController::class, 'GetEvato'])->name('download.envato');
     Route::post('/youtube', [HomeController::class, 'GetYoutube'])->name('download.youtube');
     Route::post('/artlist', [HomeController::class, 'GetArtlist'])->name('download.artlist');
     Route::post('/pikbest', [HomeController::class, 'GetPikbest'])->name('download.pikbest');

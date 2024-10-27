@@ -84,5 +84,23 @@ class ApiService
             return "Download Resource fail. ". $e;
         }
     }
+
+    public static function DownLoadResourceEnvato($link)
+    {
+        try
+        {
+            $response = Http::get('http://14.225.255.75:8000/envato?type=license&url='.$link);
+
+            if ($response && $response['result'] == null)
+            {
+                return $response['code'] ?? "Download Resource fail";
+            }
+            else
+                return $response['result'];
+        }
+        catch (\Exception $e){
+            return "Download Resource fail. ". $e;
+        }
+    }
 }
 
