@@ -154,14 +154,7 @@ class HomeController extends Controller
             $transaction->quantity = 1;
             $transaction->save();
             DB::commit();
-            // Tạo mảng với tất cả dữ liệu cần truyền
-            // $data = [
-            //     'categories' => $categories,
-            //     'page_item' => $page_item,
-            //     'url' => $url,
-            //     'id' => $id,
-            // ];
-            // Chuyển hướng và truyền dữ liệu
+            
             return response()->json([
                 'url' => $url,
                 'page_item' => $page_item,
@@ -176,5 +169,58 @@ class HomeController extends Controller
 
     }
 
+    public function GetEvato(Request $request){
+        DB::beginTransaction();
+        try{
+            if (!(Auth::guard('member')->check())) {
+                return response()->json(['error' => 'Vui lòng đăng nhập để tải!'], 400);
+            }
+            if (!(Str::contains($request->link, 'envato'))) {
+                return response()->json(['error' => 'Link không hợp lệ'], 400);
+            } 
+            $categories = PageDowload::all();
+            $page_item = PageDowload::where('type', 'envato')->first();
+            $member = Member::findOrFail(Auth::guard('member')->id());
+            if ( $member && ($member->account_balance < $page_item->amount)) {
+                return response()->json(['error' => 'Số dư không đủ, vui lòng nạp thêm tiền!'], 400);
+            }
 
+            if ($request->type){
+                $page_item = PageDowload::where('type', $request->type)->first();
+            }
+            $url = null;
+            $id = Extension::GetIDFromEvanto($request->link);
+            $url = ApiService::DownLoadResourceEnvato($request->link);
+
+            if ($url == null) {
+                return response()->json(['error' => __('messages.url_empty')], 400);
+            }
+
+            $member->account_balance -= $page_item->amount;
+            $member->save();
+
+            // lưu vào lịch sử transaction 
+            $transaction = new Transaction();
+            $transaction->member_id = $member->id;
+            $transaction->type	 = 'dowload_'.$page_item->type;
+            $transaction->amount = $page_item->amount*1000;
+            $transaction->page_id = $page_item->id;
+            $transaction->status = 1;
+            $transaction->quantity = 1;
+            $transaction->save();
+            DB::commit();
+            
+            return response()->json([
+                'url' => $url,
+                'page_item' => $page_item,
+                'id' => $id,
+            ]);
+        }
+        catch  (\Exception $e) {
+            DB::rollBack();
+            Log::error('Error: ' . $e->getMessage());
+            return response()->json(['error' => __('messages.error_server')], 500);
+        }
+
+    }
 }
