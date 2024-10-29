@@ -3,7 +3,9 @@
 <section class="login-container">
         <div class="forgot-password-card">
                 <div class="logo-wrapper">
-                    <div class="logo">LOGO</div>
+                    <div class="logo">
+                        <img src="{{ asset('assets-theme/img/logogetlink.png') }}" width="100" height="40" alt="">
+                    </div>
                 </div>
                 <div class="login-wrapper">
                     <div class="forgot-password-text">Quên mật khẩu</div>

@@ -75,7 +75,7 @@ class HomeController extends Controller
                 }
             }
          
-            if ($url == null) {
+            if ($url == null || $url == 400) {
                 return response()->json(['error' => __('messages.url_empty')], 400);
             }
             
@@ -137,7 +137,7 @@ class HomeController extends Controller
             $id = Extension::GetIDFromLink($request->link);
             $url = SeleniumService::DownLoadResourceMotionarray($id);
 
-            if ($url == null) {
+            if ($url == null || $url == 400) {
                 return response()->json(['error' => __('messages.url_empty')], 400);
             }
 
@@ -192,7 +192,7 @@ class HomeController extends Controller
             $id = Extension::GetIDFromEvanto($request->link);
             $url = ApiService::DownLoadResourceEnvato($request->link);
 
-            if ($url == null) {
+            if ($url == null || $url == 400) {
                 return response()->json(['error' => __('messages.url_empty')], 400);
             }
 
