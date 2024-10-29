@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <div class="shadow profile-section">
+        {{-- <div class="shadow profile-section">
             <div class="header">Lịch sử tải ảnh</div>
             <div class="table-wrapper">
                 <div class="table-tools">
@@ -163,11 +163,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="shadow profile-section">
             <div class="header">Lịch sử thanh toán</div>
             <div class="table-wrapper">
-                <div class="table-tools">
+                {{-- <div class="table-tools">
                     <label>
                         Hiện
                         <select class="custom-select custom-select-sm form-control form-control-sm">
@@ -182,7 +182,7 @@
                         <input type="search" class="custom-input form-control form-control-sm" placeholder=""
                             aria-controls="download-table">
                     </label>
-                </div>
+                </div> --}}
                 <table class="table table-bordered dataTable no-footer" id="download-table" width="100%"
                     cellspacing="0" role="grid" aria-describedby="download-table_info" style="width: 100%;">
                     <thead>

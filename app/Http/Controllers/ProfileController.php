@@ -20,7 +20,7 @@ class ProfileController extends Controller
             $query->where('member_id', $memberId);
         });
 
-        $transactions = $query->paginate(10);
+        $transactions = $query->orderBy('created_at', 'desc')->paginate(10);
 
         $tab = $request->get('tab', 'tab1');
         if ($user) {
