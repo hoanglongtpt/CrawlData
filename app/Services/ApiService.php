@@ -56,14 +56,14 @@ class ApiService
             $response = Http::get('http://14.225.255.75:8000/freepik/'.$id.'?type='.$type);
             if ($response && $response['result'] == null)
             {
-                return $response['code'] ?? "Download Resource fail";
+                return 400 ?? "Download Resource fail";
             }
             else
 
                 return $response['result'];
         }
         catch (\Exception $e){
-            return "Download Resource fail. ". $e;
+            return 400;
         }
     }
 
@@ -75,13 +75,13 @@ class ApiService
 
             if ($response && $response['result'] == null)
             {
-                return $response['code'] ?? "Download Resource fail";
+                return 400 ?? "Download Resource fail";
             }
             else
                 return $response['result'];
         }
         catch (\Exception $e){
-            return "Download Resource fail. ". $e;
+            return 400;
         }
     }
 
@@ -93,13 +93,13 @@ class ApiService
 
             if ($response && $response['result'] == null)
             {
-                return $response['code'] ?? "Download Resource fail";
+                return 400 ?? "Download Resource fail";
             }
             else
                 return $response['result'];
         }
         catch (\Exception $e){
-            return "Download Resource fail. ". $e;
+            return 400;
         }
     }
 }

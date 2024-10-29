@@ -6,7 +6,9 @@
                 <img class="login-img"  src="{{asset('assets-theme/img/login.jpg')}}">
             </div>
             <div class="side login-side">
-                <div class="logo">LOGO</div>
+                <div class="logo">
+                    <img src="{{ asset('assets-theme/img/logogetlink.png') }}" width="100" height="40" alt="">
+                </div>
                 <div class="login-wrapper">
                     <div class="login-text">Đăng ký</div>
                     <form action="{{route('member.postRegister')}}"  class="user" method="POST">

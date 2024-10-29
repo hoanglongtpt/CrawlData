@@ -152,18 +152,20 @@
                     data: $('form').serialize(), // Dữ liệu của form
                     beforeSend: function() {
                         // Hiển thị spinner trước khi gửi yêu cầu
+                        $('#wp-result').hide();
                         $('.spinner-border').show();
                     },
                     success: function(response) {
                         // Xử lý dữ liệu trả về
                         if (response.url) {
+                        $('#wp-result').show();
                             $('#wp-result').html(`
                         <div id="result" class="result-container">
                             <div class="flex justify-center download-box border-b-dashed">
                                 <img class="download-img" src="{{ asset('assets-theme/img/folder-download.png') }}">
                             </div>
                             <div class="download-box border-b-dashed flex flex-col items-center gap-2">
-                                <button class="result-link">${response.page_item.name}_${response.id}</button>
+                                <span class="result-link">${response.page_item.name}_${response.id}</span>
                                 <a type="button" href="${response.url}" class="result-download">DOWNLOAD</a>
                             </div>
                             <div class="border-b-dashed flex justify-center report-link">Báo link download hỏng hoặc gặp sự cố?</div>

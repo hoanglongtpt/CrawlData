@@ -2,7 +2,10 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('home')}}">
-        <div class=" mx-3">LOGO</div>
+        {{-- <div class=" mx-3">LOGO</div> --}}
+        <div class=" mx-3">
+            <img src="{{ asset('assets-theme/img/logogetlink.png') }}" width="100" height="40" alt="">
+        </div>
     </a>
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
