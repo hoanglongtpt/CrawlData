@@ -13,3 +13,7 @@ php artisan db:seed
 php artisan sweetalert:publish
 php artisan ser (chạy dự án)
 mnn
+
+
+<h2> chạy cron job login Envato </h2>
+php artisan app:call-api-evanto-endpoints
