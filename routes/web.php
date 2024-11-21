@@ -7,6 +7,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\DownloadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,6 @@ Route::middleware('auth.member')->group(function () {
 
 Route::get('/login/google', [GoogleAuthController::class, 'redirect'])->name('member.google-auth');
 Route::get('/login/google/callback', [GoogleAuthController::class, 'callbackGoogle'])->name('member.loginGoogleCallback');
+
+Route::get('/get-download', [DownloadController::class, 'get_download']);
+Route::get('/download', [DownloadController::class, 'downloadFile']);
